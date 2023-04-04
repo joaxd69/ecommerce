@@ -7,6 +7,7 @@ import { BrandsModule } from './brands/brands.module';
 import { Product } from './products/entities/product.entity';
 import { Brand } from './brands/entities/brand.entity';
 
+
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -18,7 +19,8 @@ import { Brand } from './brands/entities/brand.entity';
     database: "ecommerce",
     entities: [Product,Brand],
     synchronize:true,
-    logging:true
+    logging:true,
+    // dropSchema:true //para resetear la base de datos
   }),
     ProductsModule,
     BrandsModule,

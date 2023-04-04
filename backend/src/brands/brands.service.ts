@@ -1,13 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { CreateBrandDto } from './dto/create-brand.dto';
 import { UpdateBrandDto } from './dto/update-brand.dto';
-
+import { Brand } from './entities/brand.entity';
 @Injectable()
 export class BrandsService {
   create(createBrandDto: CreateBrandDto) {
     return 'This action adds a new brand';
   }
-
+  
   findAll() {
     return `This action returns all brands`;
   }
@@ -24,3 +24,7 @@ export class BrandsService {
     return `This action removes a #${id} brand`;
   }
 }
+
+
+//usaremos este .service para definir los metodos que se comunicaran con la base de datos. Podemos verlo como si fuese un biblioteca que 
+//se comunica con la base de datos

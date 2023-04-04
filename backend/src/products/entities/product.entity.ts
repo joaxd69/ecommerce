@@ -5,18 +5,20 @@ export class Product {
     @PrimaryGeneratedColumn('uuid')///para la tabla
     Id:number//para typescript
 
-    @Column()//en caso que no le asignemor el tupo  en el decorador, type orm se lo definira en base al tipo de dato que le pasemos abajo en el nombre de  la propiedad
+    @Column()//en caso que no le asignemor el tipo  en el decorador, type orm se lo definira en base al tipo de dato que le pasemos abajo en el nombre de  la propiedad
     Name:string
 
-    @Column('float')
+    @Column('float',{nullable:true})
     Price:number
-
-
-    @Column()
+ 
+    @Column({nullable:true})
      Type:string
 
-     @Column({ type: 'jsonb' })//tipo de dato que sera un objeto
+    @Column({ type: 'jsonb',nullable:true })//tipo de dato que sera un objeto
      Characteristic: object;
+     
+     @Column()
+     Image:string
 
     @ManyToOne(()=>Brand,brand=>brand.Name)///Un producto solo puede tener una sola marca
     @JoinColumn({ name: 'brand_id' })//brand_id sera nombre de la columna de clave foránea en la tabla de productos que se relaciona con la tabla de brands
