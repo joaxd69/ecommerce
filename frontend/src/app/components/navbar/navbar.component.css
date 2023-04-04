@@ -1,0 +1,56 @@
+.container{
+    background-color: rgb(4, 4, 107);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+}
+#section1{
+    color: antiquewhite;
+
+    display: inline-block;
+}
+#section1 h1{
+    font-size: 30px;
+    letter-spacing: 1px;
+}
+#section2{
+    color: rgb(198, 199, 199);
+    font-size: 25px;
+}
+#section2 span{
+    margin: 4px;
+    cursor: pointer;
+    padding-bottom: 4%;
+}
+#section2 span:hover{
+color: white;
+}
+#section2 span:hover ~ #section4{
+    display: block;
+}
+
+  
+#section3{
+    border: 2px solid;
+}
+#section4{
+  background-color: rgb(230, 230, 230);
+  color: black;
+  width: 70%;
+  height: max-content;
+  margin: 0 auto;
+  position: absolute;
+  margin-top: 28px;
+  display: none;
+  border: 1px solid #bebdbd;
+  left: 12%;
+  right: 12%;
+}
+#section4:hover{
+  display: block;
+}
+
+#section4 h1{
+  margin: 0 auto;
+}

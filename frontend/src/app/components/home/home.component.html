@@ -1,0 +1,12 @@
+<div>
+    <h1>HOME</h1>
+    <h2>{{name}}</h2>
+</div>
+<button (click)="getphoto()">
+    ver
+</button>
+
+
+<div *ngFor="let product of productos; let i=index">
+  <img src="{{product.url}}" alt="" height="50" width="50">
+</div>

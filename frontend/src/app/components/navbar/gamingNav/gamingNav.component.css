@@ -1,0 +1,24 @@
+div{
+    display: flex;
+    justify-content:flex-start;
+    height: 100%;
+}
+section {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    border-left: 1px solid #bebdbd; 
+    padding: 8px;
+}
+h5{
+    margin: 0;
+    letter-spacing: 2px;
+}
+span{
+    font-size: 15px;
+    cursor: pointer;
+    padding: 5px;
+}
+span:hover{
+    background-color: rgb(212, 216, 216);
+}
