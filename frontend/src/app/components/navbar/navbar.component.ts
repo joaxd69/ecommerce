@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import sections from '../../interfaces/Interfaces'
+import {sections,Products} from '../../interfaces/Interfaces'
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',

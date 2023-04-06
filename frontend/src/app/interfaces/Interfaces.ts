@@ -1,10 +1,17 @@
 
-export default interface sections{
-   cellphone:false|true,
-   AudioVideo:false|true,
-   Informatica:false|true,
-   Gaming:false|true,
-   Accesories:false|true,
-   Apliances:false|true,
-   
+export  interface sections{
+   cellphone:boolean,
+   AudioVideo:boolean,
+   Informatica:boolean,
+   Gaming:boolean,
+   Accesories:boolean,
+   Apliances:boolean,
+}
+
+export  interface Products{
+   Name:string,
+   Price:number,
+   Type:string,
+   Characteristic: object,
+   Image:string,
 }

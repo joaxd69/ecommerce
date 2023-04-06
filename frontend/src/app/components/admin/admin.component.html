@@ -1,0 +1,25 @@
+<div class="FirstContainer" >
+    <h1>Hi admin</h1>
+    <section class="FormSection">
+      <form action="" class="Form">
+         <h4>Agregar producto</h4>
+        <label for="">Nombre</label>
+        <input type="text" (input)="onChange($event)" name="Name">
+
+        <label for="">Precio</label>
+        <input type="number" (input)="onChange($event)" name="Price">
+
+        <label for="">Tipo</label>
+        <input type="text" (input)="onChange($event)" name="Type">
+
+        <label for="">Imagen</label>
+        <input type="text" (input)="onChange($event)" name="Image">
+    </form>
+
+     <button (click)="createProduct()">Crear</button>
+    <button>Agregar</button>
+    </section>
+
+    <button (click)="onClick()">Ver </button>
+</div>
+

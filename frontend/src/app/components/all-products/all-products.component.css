@@ -1,0 +1,9 @@
+.Products{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.Items{
+    padding: 20px;
+    border: 1px solid;
+}

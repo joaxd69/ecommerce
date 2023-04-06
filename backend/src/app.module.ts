@@ -9,7 +9,7 @@ import { Brand } from './brands/entities/brand.entity';
 
 
 @Module({
-  imports: [
+  imports:  [
     TypeOrmModule.forRoot({
       type: "postgres",
       host: "localhost",

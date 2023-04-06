@@ -7,6 +7,7 @@ import { CellphoneComponent } from './components/cellphone/cellphone.component';
 import { ComputingComponent } from './components/computing/computing.component';
 import { GamingComponent } from './components/gaming/gaming.component';
 import { HomeComponent } from './components/home/home.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path:'Apliances', component:ApliancesComponent },
   {path:'Computing', component:ComputingComponent },
   {path:'Audiovideo', component:AudioVideoComponent },
-  {path:'Gaming', component:GamingComponent },
+  {path:'Gaming', component:GamingComponent},
+  {path:'Admin', component:AdminComponent},
 ];
 
 @NgModule({

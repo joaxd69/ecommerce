@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {HttpClientModule} from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -13,9 +13,11 @@ import { AccessoriesComponent } from './components/navbar/accessoriesNav/accesso
 import { ApliancesComponent } from './components/navbar/apliancesNav/apliancesNav.component';
 import { AccesoriesComponent } from './components/accesories/accesories.component';
 import { CellphoneComponent } from './components/cellphone/cellphone.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { AllProductsComponent } from './components/all-products/all-products.component';
 
 @NgModule({
-  declarations: [
+  declarations: [///nuestros componentes de la aplicacion
     AppComponent,
     NavbarComponent,
     HomeComponent,
@@ -27,10 +29,13 @@ import { CellphoneComponent } from './components/cellphone/cellphone.component';
     ApliancesComponent,
     AccesoriesComponent,
     CellphoneComponent,
+    AdminComponent,
+    AllProductsComponent,
   ],
-  imports: [
+  imports: [///modulos que nos serviran en distintos ambitos
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,///para crear rutas
+    HttpClientModule///para hacer acciones asincronas como conectar al back end , ver capeta services
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,24 @@
+.FirstContainer{
+    background-color: rgb(66, 66, 66);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.FormSection{
+    width: 350px;
+}
+.Form{
+    padding: 10px;
+    background-color: rgb(115, 175, 152);
+    display: flex;
+    flex-direction: column;
+}
+.Form input{
+    padding: 5px;
+    border: none;
+}
+.FormSection button{
+    display: inline-block;
+    margin: 0 auto;
+    background-color: rgb(223, 146, 45);
+}
