@@ -5,12 +5,12 @@ export class Brand {
   @PrimaryGeneratedColumn('uuid')
   Id:Number
 
-  @Column()
+  @Column('varchar',{nullable:false})
   Name:string
 
-  @OneToMany(()=>Product,product=>product.Brand)/// Una marca puede tener varios productos
-  products:[]
-  
-  @Column({ type: 'text', array: true })///espesificamos que la propiedad sera un tipo array con strings
+  @Column({ type: 'text', array: true,nullable:true })///espesificamos que la propiedad sera un tipo array con strings
   ProductsTypes:string[]
+  
+  @OneToMany(()=>Product,product=>product.Brand)/// Una marca puede tener varios productos
+  products:Product[]
 } 
