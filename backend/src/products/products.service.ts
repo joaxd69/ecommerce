@@ -5,68 +5,54 @@ import { Product } from './entities/product.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Brand } from 'src/brands/entities/brand.entity';
+import { Model } from 'src/models/entities/model.entity';
 @Injectable()
 export class ProductsService {
   constructor(
-    @InjectRepository(Product) private ProductRepository:Repository<Product>,
-    @InjectRepository(Brand) private BrandRepository:Repository<Brand>
+    @InjectRepository(Product) private ProductRepository:Repository<Product>,///inyectamos los modelos/tablas/entidad que vamos  a trabajar 
+    @InjectRepository(Brand) private BrandRepository:Repository<Brand>,
+    @InjectRepository(Model) private ModelRepository:Repository<Model>
     ){///productrepository sera una referencia a la tabla de product
   }
-  async createProduct(product:CreateProductDto){
-    const existorcreate = await this.BrandRepository.findOne({where:{Name:product.Brand}})
-    const brand =  !existorcreate? this.BrandRepository.create({Name:product.Brand}):existorcreate
-    await this.BrandRepository.save(brand);
+  async createProduct(product:CreateProductDto){//tipamos el producto que debemos recibir
+    const existorcreate = await this.BrandRepository.findOne({where:{Name:product.Brand}});//buscamos en nuestras tablas, si existe lar marca del producto nuevo
+    const brand =  !existorcreate? this.BrandRepository.create({Name:product.Brand}):existorcreate;//si no existe, lo creamos
+    await this.BrandRepository.save(brand);//entonces guardamos la marca creada 
 
-    const newProduct= new Product();
-      newProduct.Name=product.Name;
-      newProduct.Characteristic=product.Characteristic
-      newProduct.Image=product.Image
-      newProduct.Model=product.Model
+    const existmodel=await this.ModelRepository.findOne({where:{Name:product.Model.Name}})
+    const model=!existmodel?this.ModelRepository.create(product.Model):existmodel
+    await this.ModelRepository.save(model)
+
+    const newProduct= new Product();///ahora creamos el nuevo producto
+      newProduct.Name=product.Name;//y le pasamos los parametros
+      newProduct.Characteristic=product.Characteristic;
+      newProduct.Image=product.Image;
+      newProduct.Model=[model]
       newProduct.Price=product.Price;
-      newProduct.Characteristic=newProduct.Characteristic
-      newProduct.Brand=brand
+      newProduct.Characteristic=newProduct.Characteristic;
+      newProduct.Brand=brand;//hacemos la relacion con nueva marca creada
   
-
-    await this.ProductRepository.save(newProduct)
+    
+    await this.ProductRepository.save(newProduct);///guardamos el  nuevo producto en nuestra base de datos
     return newProduct
-   //la nueva marca la relacionamos con el producto creado
 
-   ///guardamos el product relacionado
   }
-  // @Controller('products')
-  // export class ProductController {
-  //   // ...
-  
-  //   @Post()
-  //   async create(@Body() createProductDto: CreateProductDto) {
-  //     const brand = await this.brandRepository.findOne(createProductDto.brandId);
-  //     const product = new Product();
-  //     product.name = createProductDto.name;
-  //     product.price = createProductDto.price;
-  //     product.brand = brand;
-  //     await this.productRepository.save(product);
-  //     return product;
-  //   }
-  // }
 
 
  async getAllProducts() {
-    const allProducts=await this.ProductRepository.find()
+    const allProducts=await this.ProductRepository.find({relations:["Brand","Model"]});///buscamos en  nuestra db , todos los productos, y retornamos incluyendo los relacionados
     return allProducts;
   }
- async getProductsByName(name:string ){
+ async getProductsByName(name:string ){///recibimos el nombre del producto que vamos a recibir por params
    const Product=await this.ProductRepository.findOne({
     where:{
       Name:name
     }
-   })
-   return Product?Product:{error:'No se encontraron resultados'}//manejo de error temporal
+   });// lo buscamos 
+   return Product?Product:{error:'No se encontraron resultados'}//y retornamos,(manejo de error temporal)
  }
  
- async relation(){
-  const product= new Product()
-  product.Brand
- }
+
   update(id: number, updateProductDto: UpdateProductDto) {
     return `This action updates a #${id} product`;
   }
