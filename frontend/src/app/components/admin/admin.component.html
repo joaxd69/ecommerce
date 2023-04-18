@@ -3,17 +3,30 @@
     <section class="FormSection">
       <form action="" class="Form">
          <h4>Agregar producto</h4>
-        <label for="">Nombre</label>
-        <input type="text" (input)="onChange($event)" name="Name">
+        <label for="">*Producto?(celular,televisor,etc)</label>
+        <input type="text" (input)="onChange($event,false)" name="Name">
+        <label for="">*Marca</label>
+        <input type="text"  (input)="onChange($event,false)" name="Brand">
+        
+        <label for="">*Nombre/modelo</label>
+        <input type="text" (input)="onChange($event,true)" name="Name">
 
-        <label for="">Precio</label>
-        <input type="number" (input)="onChange($event)" name="Price">
+        <label for="">*Precio</label>
+        <input type="number" (input)="onChange($event,false)" name="Price">
 
-        <label for="">Tipo</label>
-        <input type="text" (input)="onChange($event)" name="Type">
+        <label for="">*Imagen</label>
+        <input type="text" (input)="onChange($event,false)" name="Image">
+         
+        <label for="">*Stock?</label> 
 
-        <label for="">Imagen</label>
-        <input type="text" (input)="onChange($event)" name="Image">
+            <select name="" (change)="updateStock($event)" >
+                <option value="true">Si</option>
+                <option value="false">No</option>
+            </select>
+      <label>*Cantidad de stock:</label>
+
+      <input type="number" (input)="updateStock($event)" id="">
+
     </form>
 
      <button (click)="createProduct()">Crear</button>
@@ -21,5 +34,8 @@
     </section>
 
     <button (click)="onClick()">Ver </button>
+
+
+    
 </div>
 

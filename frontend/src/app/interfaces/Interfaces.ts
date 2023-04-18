@@ -7,11 +7,18 @@ export  interface sections{
    Accesories:boolean,
    Apliances:boolean,
 }
-
+export interface Model{
+   Name:string,
+   Stock:{
+      avaliable:boolean,
+      stockNumber:number
+   }
+}
 export  interface Products{
    Name:string,
    Price:number,
-   Type:string,
+   Model:Model,
    Characteristic: object,
    Image:string,
+   Brand:string
 }
