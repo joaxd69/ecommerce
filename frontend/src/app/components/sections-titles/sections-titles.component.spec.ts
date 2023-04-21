@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AudioVideoComponent } from './audio-video.component';
+import { SectionsTitlesComponent } from './sections-titles.component';
 
-describe('AudioVideoComponent', () => {
-  let component: AudioVideoComponent;
-  let fixture: ComponentFixture<AudioVideoComponent>;
+describe('SectionsTitlesComponent', () => {
+  let component: SectionsTitlesComponent;
+  let fixture: ComponentFixture<SectionsTitlesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AudioVideoComponent ]
+      declarations: [ SectionsTitlesComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AudioVideoComponent);
+    fixture = TestBed.createComponent(SectionsTitlesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

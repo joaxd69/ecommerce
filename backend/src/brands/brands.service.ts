@@ -27,13 +27,13 @@ async  createBrand(brand:CreateBrandDto) {
   }
   
   async findAll() {
-      const allbrands= await this.BrandRepository.find()
+      const allbrands= await this.BrandRepository.find({relations:['products']})
       
       return allbrands.length?allbrands:'sin marcas'
     
     } 
 
-  findOne(id: number) {
+  findOne(id: number) { 
     return `This action returns a #${id} brand`;
   }
 
