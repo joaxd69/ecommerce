@@ -1,0 +1,19 @@
+.PrincipalContainer{
+
+ display: flex;
+ flex-direction: column;
+}
+.ContentSection{
+    width: 100%;
+   display: flex;
+}
+.FilterSection{
+    width: fit-content;
+}
+.CardsContainer{
+display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+width: 100%;
+
+}

@@ -22,3 +22,13 @@ export  interface Products{
    Image:string,
    Brand:string
 }
+export  interface ProductsApi{
+   Name:string,
+   Price:number,
+   Model:Model[],
+   Characteristic: object,
+   Image:string,
+   Brand:{
+      Name:string
+   }
+}

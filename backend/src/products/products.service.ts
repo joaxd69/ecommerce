@@ -47,17 +47,42 @@ export class ProductsService {
    const Product=await this.ProductRepository.findOne({
     where:{
       Name:name
-    }
+    },
+    relations:["Brand","Model"]
    });// lo buscamos 
    return Product?Product:{error:'No se encontraron resultados'}//y retornamos,(manejo de error temporal)
  }
- 
+ async getAllCellphones(){
+  const products = await this.ProductRepository.find({
+    where:{Name:'Celular'},
+    relations:["Brand","Model"]
+  })
+  return products
+ }
+
+ async getAllTvs(){
+  const products = await this.ProductRepository.find({
+    where:{Name:'Tv'},
+    relations:["Brand","Model"]
+  })
+  return products
+ }
+
+ async getAllComputer(){
+  const products = await this.ProductRepository.find({
+    where:{Name:'Computer'}
+  })
+  return products
+ }
+
 
   update(id: number, updateProductDto: UpdateProductDto) {
     return `This action updates a #${id} product`;
   }
 
-  remove(id: number) {
+  async remove(id: string) {
+    const deleteProduct= await this.ProductRepository.delete({Id:parseInt(id)})
+
     return `This action removes a #${id} product`;
   }
 }

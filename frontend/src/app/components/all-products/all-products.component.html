@@ -1,8 +1,9 @@
 
 <div>
+
     <h1>Some products</h1>
     <section class="Products">
-     <div *ngFor="let item of products" class="Items">
+     <div *ngFor="let item of products ,let i =index" class="Items">
         <h1>{{item.Name}}</h1>
         <img src={{item.Image}} alt="products" width="150" height="150">
         <h5>{{item.Price}}</h5>

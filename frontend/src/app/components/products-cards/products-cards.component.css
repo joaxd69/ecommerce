@@ -1,0 +1,21 @@
+.Cards{
+   border: 1px solid rgb(167, 164, 164);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+ 
+}
+.Cards span{
+    font-size: 18px;
+}
+.Cards button{
+    padding: 5px;
+    background-color: white;
+    border-radius:20px ;
+    width: 80%;
+    border: solid 1px blue;
+    font-size: 16px;
+    color: blue;
+    margin: 10px;
+
+}

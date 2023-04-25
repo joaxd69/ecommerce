@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete ,  } from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
@@ -18,10 +18,19 @@ export class ProductsController {
   findAll() {
     return this.productsService.getAllProducts();//para una peticion get, retornamos todos los productos
   }
-  @Get(':id')///podremos buscar por id  algunos productos espesificos
-   getProductsByName(@Param('id') id:string){
-    return this.productsService.getProductsByName(id)
-   }
+  @Get('/cellphones')
+  getAllCellphones(){
+    return this.productsService.getAllCellphones()
+  }
+
+  @Get('/Tv')
+  getAllTv(){
+    return this.productsService.getAllTvs()
+  }
+  // @Get(':id')///podremos buscar por id  algunos productos espesificos
+  //  getProductsByName(@Param('id') id:string){
+  //   return this.productsService.getProductsByName(id)
+  //  }
   // @Get(':id')
   // findOne(@Param('id') id: string) {
   //   return this.productsService.findOne(+id);
@@ -34,6 +43,7 @@ export class ProductsController {
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.productsService.remove(+id);
+    console.log(id)
+    return this.productsService.remove(id.toString());
   }
 }

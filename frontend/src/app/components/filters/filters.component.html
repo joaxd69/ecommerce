@@ -1,31 +1,20 @@
-<div>
-    <section>
+<div class="PrincipalContainer">
+
+    <section class="Filters">
         <h1>Marcas</h1>
-        <span>Marcass</span> <br>
-        <span>Marcass</span> <br>
-        <span>Marcass</span> <br>
-        <span>Marcass</span> <br>
-        <span>Marcass</span> <br>
-        <span>Marcass</span> <br>
-        <span>Marcass</span> <br>
-        <span>Marcass</span> <br>
-        <span>Marcass</span> <br>
-        <span>Marcass</span> <br>
-        <span>Marcass</span> <br>
-        <span>Marcass</span> <br>
+         <button value="all" (click)="FilterByBrands($event)">Todas las marcas</button>
+         <div class="Brands" *ngFor="let brand of Brands,let i=index">
+           <button value={{brand}} (click)="FilterByBrands($event)">{{brand}}</button>
+         </div>
     </section>
-    <section>
-        <h1>Categorias</h1>
-        <span>Categoria</span>
-        <span>Categoria</span>
-        <span>Categoria</span>
-        <span>Categoria</span>
-        <span>Categoria</span>
-        <span>Categoria</span>
-        <span>Categoria</span>
-        <span>Categoria</span>
-        <span>Categoria</span>
-        <span>Categoria</span>
+    
+    <section class="Filters">
+        <h1>Modelos</h1>
+         <button value="all" (click)="FilterByModels($event)">Todas los modelos</button>
+         <div class="Models" *ngFor="let model of Models, let i=index" >
+            <button value={{model.Name}} (click)="FilterByModels($event)" >{{model.Name}}</button>
+         </div>
     </section>
+  
     
 </div>

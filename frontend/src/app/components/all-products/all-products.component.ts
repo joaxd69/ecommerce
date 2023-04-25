@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { Products } from 'src/app/interfaces/Interfaces';
-import { ProductsService } from 'src/app/services/products.service';////traemos el servicio que hace la peticion a la api
+import { ProductsService } from 'src/app/services/products/products.service';////traemos el servicio que hace la peticion a la api
 @Component({
   selector: 'app-all-products',
   templateUrl: './all-products.component.html',
   styleUrls: ['./all-products.component.css']
 })
 export class AllProductsComponent {
+  Name:string='Holaaa'
   constructor(private productService:ProductsService){////le inyectamos el servicio  a  la clase 
 
   } 

@@ -18,7 +18,7 @@ export class ModelsService {
   }
 
   async findAll() {
-    const allModels= await this.ModelRepository.find({relations:['Product']})
+    const allModels= await this.ModelRepository.find({relations:['Product','Product.Brand']})
     return allModels;
   }
 

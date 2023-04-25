@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Products,Model } from 'src/app/interfaces/Interfaces';
-import { ProductsService } from 'src/app/services/products.service'; ///uestro servicio que nos conectara con el back end
+import { ProductsService } from 'src/app/services/products/products.service'; ///uestro servicio que nos conectara con el back end
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',

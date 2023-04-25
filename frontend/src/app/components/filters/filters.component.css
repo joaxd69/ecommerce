@@ -1,0 +1,30 @@
+.PrincipalContainer{
+    border-right: 1px solid;
+    height: 100%;
+}
+.Filters{
+
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+.Brands span {
+    font-size: 17px;
+    margin: 5px;
+}
+.Filters h1{
+    color: blue;
+    margin: 0;
+}
+.Filters button{
+    background: none;
+    border: none;
+    margin-top:5px;
+    margin-bottom:5px;
+    cursor: pointer;
+    color: rgb(41, 41, 41);
+    font-weight: 500;
+}
+.Filters button:hover{
+    color: rgb(14, 0, 214);
+}

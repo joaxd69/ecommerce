@@ -21,6 +21,8 @@ import { AccesoriesProductsComponent } from './pages/accesories-products/accesor
 import { GamingProductsComponent } from './pages/gaming-products/gaming-products.component';
 import { ApliancesProductsComponent } from './pages/apliances-products/apliances-products.component';
 import { FiltersComponent } from './components/filters/filters.component';
+import { ProductsCardsComponent } from './components/products-cards/products-cards.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [///nuestros componentes de la aplicacion
@@ -44,7 +46,8 @@ import { FiltersComponent } from './components/filters/filters.component';
     AccesoriesProductsComponent,
     GamingProductsComponent,
     ApliancesProductsComponent,
-    FiltersComponent
+    FiltersComponent,
+    ProductsCardsComponent,
   ],
   imports: [///modulos que nos serviran en distintos ambitos
     BrowserModule,

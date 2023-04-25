@@ -1,18 +1,15 @@
-<div>
-    <section>
-        <div>
-            <h1>{{Title}}</h1>
-        </div>
-        <div>
-            <span>Cantidad de productos : X</span>
-            <select name="" id="">
-                <option value="">Ordenar</option>
-                <option value="">Recientes</option>
-                <option value="">Categoria</option>
-                <option value="">Menor precio</option>
-                <option value="">Mayor precio</option>
-            </select>
-        </div>
+<div class="Container">
+    <section class="TitleSection">
+        <h1>{{Title}}</h1>
     </section>
-    <hr>
+    <section class="OptionsSection">
+        <span>Cantidad de productos :{{TotalProducts}}</span>
+        <select name="" id="" (change)="FilterProducts($event)">
+            <option value="default">Ordenar</option>
+            <option value="ASC">Menor precio</option>
+            <option value="DESC">Mayor precio</option>
+        </select>
+        
+    </section>
 </div>
+ 
