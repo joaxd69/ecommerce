@@ -16,11 +16,11 @@ export class FiltersComponent {
   }
   ngOnInit(){
     this.ProductService.getAllBrands().subscribe(res=>{
-      this.Brands=res.filter(i=>i.products.filter((N:any)=>N==='Televisor').length)
-      console.log(this.Brands);
-      
-       this.Brands= res.map(i=>i.Name);
+      this.Brands=res.filter(i=>i.products.map((name:any)=>name.Name).includes(this.actualsection))
+       this.Brands= this.Brands.map(i=>i.Name);
+       
       })
+      
     this.ProductService.getAllModels().subscribe(res=>{
      this.Models= res.filter(i=>i.Product.Name===this.actualsection);
      this.ModelsBuckup=res.filter(i=>i.Product.Name===this.actualsection)

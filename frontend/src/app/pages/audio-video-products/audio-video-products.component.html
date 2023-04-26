@@ -1,2 +1,36 @@
-<p>audio-video-products works!</p>
-<app-sections-titles [Title]="Title"></app-sections-titles>
+<div class="PrincipalContainer">
+    <section class="TitleSection">
+ 
+       <app-sections-titles 
+       [Title]="Title"
+       [TotalProducts]="TotalProducts"
+       (Filters)="OrderProducts($event)"
+       />
+    </section>
+      
+   
+    <section class="ContentSection">
+        
+       <section class="FilterSection">
+         <app-filters
+         (Filters)="FilterByBrands($event)"
+         [actualsection]="Section"
+         (Filterbymodel)="FilterByModels($event)"
+         />
+       </section>
+       
+        <div class="CardsContainer">
+          <div *ngFor="let cellphones of Products ,let i =index,"  class="Cards">
+       
+           <app-products-cards
+             [Model]="cellphones.Model[0].Name"
+             [Image]="cellphones.Image"
+             [Type]="cellphones.Name"
+             [Brand]="cellphones.Brand.Name"
+             [Price]="cellphones.Price"
+             />
+           </div>
+        </div>
+        
+    </section>
+</div>

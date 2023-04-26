@@ -12,7 +12,7 @@ export class ApliancesProductsComponent {
   Products:ProductsApi[]=[]
   TotalProducts:string|number=0
   ProductsR:ProductsApi[]=[]
-  Section:string='Celular'
+  Section:string='Televisor'
   constructor(private ProductsService:ProductsService,private route: ActivatedRoute){}
 
   ngOnInit(){
