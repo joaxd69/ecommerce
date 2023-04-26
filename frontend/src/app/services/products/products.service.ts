@@ -12,8 +12,8 @@ export class ProductsService {
   getAllBrands():Observable<any[]>{
     return this.http.get<(any[])>(`${this.BASE_URL}/brands`)
   }
-  getAllcellphones():Observable<ProductsApi[]>{
-    return this.http.get<ProductsApi[]>(`${this.BASE_URL}/products/cellphones`)
+  getSomeProducts(type:string):Observable<ProductsApi[]>{
+    return this.http.get<ProductsApi[]>(`${this.BASE_URL}/products/${type}`)
   }
   getAllproducts():Observable<Products[]>{
     return this.http.get<Products[]>(`${this.BASE_URL}/products`)///traemos todos los productos

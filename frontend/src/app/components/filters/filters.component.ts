@@ -7,7 +7,7 @@ import { ProductsService } from 'src/app/services/products/products.service';
   styleUrls: ['./filters.component.css']
 })
 export class FiltersComponent {
-  Brands:string[]=[]
+  Brands:any[]=[]
   Models:any[]=[]
   ModelsBuckup:any[]=[]
   @Input()
@@ -15,7 +15,12 @@ export class FiltersComponent {
   constructor(private ProductService:ProductsService ){
   }
   ngOnInit(){
-    this.ProductService.getAllBrands().subscribe(res=> this.Brands= res.map(i=>i.Name))
+    this.ProductService.getAllBrands().subscribe(res=>{
+      this.Brands=res.filter(i=>i.products.filter((N:any)=>N==='Televisor').length)
+      console.log(this.Brands);
+      
+       this.Brands= res.map(i=>i.Name);
+      })
     this.ProductService.getAllModels().subscribe(res=>{
      this.Models= res.filter(i=>i.Product.Name===this.actualsection);
      this.ModelsBuckup=res.filter(i=>i.Product.Name===this.actualsection)

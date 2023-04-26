@@ -52,9 +52,9 @@ export class ProductsService {
    });// lo buscamos 
    return Product?Product:{error:'No se encontraron resultados'}//y retornamos,(manejo de error temporal)
  }
- async getAllCellphones(){
+ async getAllCellphones(type:string){
   const products = await this.ProductRepository.find({
-    where:{Name:'Celular'},
+    where:{Name:type},
     relations:["Brand","Model"]
   })
   return products

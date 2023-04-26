@@ -18,9 +18,9 @@ export class ProductsController {
   findAll() {
     return this.productsService.getAllProducts();//para una peticion get, retornamos todos los productos
   }
-  @Get('/cellphones')
-  getAllCellphones(){
-    return this.productsService.getAllCellphones()
+  @Get(':id')
+  getAllCellphones(@Param('id') id:string){
+    return this.productsService.getAllCellphones(id)
   }
 
   @Get('/Tv')

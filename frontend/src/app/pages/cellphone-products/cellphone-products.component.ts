@@ -28,7 +28,7 @@ export class CellphoneProductsComponent {
  traerinfo(){///traemos info del back end
   const myQueryParam = this.route.snapshot.queryParamMap.get('name');
   if(!myQueryParam){
-  this.ProductsService.getAllcellphones().//accedemos al metodo que hace una peticion a la ruta que nos da los celulares
+  this.ProductsService. getSomeProducts('Celular').//accedemos al metodo que hace una peticion a la ruta que nos da los celulares
   subscribe((res)=>{//metodo subscribe que nos resuelve la promesa
     this.Products=res;//en nuestra variable guardamos el resultado de la peticion
     this.ProductsR=res;//guardamos tambien en nuestra variable de respaldo(respaldo para resetear,ordenar por default,etc)
@@ -36,7 +36,7 @@ export class CellphoneProductsComponent {
     this.TotalProducts=this.Products.length//Nos quedamos con la cantidad de productos y le pasamos ese total a nuestra variable
   })
   }else{
-    this.ProductsService.getAllcellphones().//accedemos al metodo que hace una peticion a la ruta que nos da los celulares
+    this.ProductsService. getSomeProducts('Celular').//accedemos al metodo que hace una peticion a la ruta que nos da los celulares
   subscribe((res)=>{//metodo subscribe que nos resuelve la promesa
     this.Products=res.filter(i=>i.Brand.Name===myQueryParam);//en nuestra variable guardamos el resultado de la peticion
     this.ProductsR=res;//guardamos tambien en nuestra variable de respaldo(respaldo para resetear,ordenar por default,etc)
