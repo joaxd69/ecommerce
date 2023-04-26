@@ -32,3 +32,11 @@ export  interface ProductsApi{
       Name:string
    }
 }
+export interface BrandApi{
+   Id:string,
+   Name:string,
+   ProductsTypes?:boolean,
+   products:ProductsApi,
+   
+
+}

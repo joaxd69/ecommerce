@@ -1,4 +1,4 @@
-div{
+.PrincipalContainer{
     display: flex;
     justify-content:flex-start;
     height: 100%;
@@ -14,11 +14,24 @@ h5{
     margin: 0;
     letter-spacing: 2px;
 }
+
 span{
     font-size: 15px;
     cursor: pointer;
     padding: 5px;
+  
 }
-span:hover{
+button{
+    border: none;
+    text-align: left;
+    padding: 5px;
+    background: none;
+    cursor: pointer;
+}
+.options{
+    display: flex;
+    flex-direction: column;
+}
+button:hover{
     background-color: rgb(212, 216, 216);
 }

@@ -14,7 +14,7 @@
         <span (mouseenter)="change('Apliances')" [routerLink]="['/Apliances']">Electrodomesticos </span>
 
         <section id="section4" >
-            <app-celulares *ngIf='sections.cellphone'> </app-celulares>
+            <app-celulares [Brands]="Brands" *ngIf='sections.cellphone'> </app-celulares>
             <app-audio-video *ngIf='sections.AudioVideo'></app-audio-video>
             <app-accessories *ngIf='sections.Accesories'></app-accessories>
             <app-computing *ngIf='sections.Informatica'></app-computing>

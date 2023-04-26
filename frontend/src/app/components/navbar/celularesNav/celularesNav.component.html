@@ -1,13 +1,10 @@
-<div>
+<div class="PrincipalContainer">
+    
     <section>
     <h5>Marcas</h5>
-    <span>Samsung</span>
-    <span>Apple</span>
-    <span>Alcatel</span>
-    <span>Motorola</span>
-    <span>Nokia</span>
-    <span>Xiaomi</span>
-    <span>Zte</span>
+    <div *ngFor="let brand of Brands, let i =index" class="options">
+         <button value={{brand.Name}}  [routerLink]="['/cellphones']" [queryParams]="{name:brand.Name}" (click)="reloadPage()">{{brand.Name}}</button>
+    </div>
 </section>
     <section>
     <h5>Memoria</h5>
