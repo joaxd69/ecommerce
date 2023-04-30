@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { CreateProductDto } from './dto/create-product.dto';
+import { CreateProductDto, ProductType } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { Product } from './entities/product.entity';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -28,11 +28,10 @@ export class ProductsService {
       newProduct.Characteristic=product.Characteristic;
       newProduct.Image=product.Image;
       newProduct.Model=[model]
+      newProduct.ProductType=product.ProductType
       newProduct.Price=product.Price;
       newProduct.Characteristic=newProduct.Characteristic;
       newProduct.Brand=brand;//hacemos la relacion con nueva marca creada
-  
-    
     await this.ProductRepository.save(newProduct);///guardamos el  nuevo producto en nuestra base de datos
     return newProduct
 
@@ -52,9 +51,11 @@ export class ProductsService {
    });// lo buscamos 
    return Product?Product:{error:'No se encontraron resultados'}//y retornamos,(manejo de error temporal)
  }
- async getAllCellphones(type:string){
+ async getAllCellphones(type:ProductType){
+  console.log(type);
+  
   const products = await this.ProductRepository.find({
-    where:{Name:type},
+    where:{ProductType:type},
     relations:["Brand","Model"]
   })
   return products

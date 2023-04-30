@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ProductsApi } from 'src/app/interfaces/Interfaces';
+import { ProductType, ProductsApi } from 'src/app/interfaces/Interfaces';
 import { ProductsService } from 'src/app/services/products/products.service';
 import { ActivatedRoute, Router } from '@angular/router';
 @Component({
@@ -12,7 +12,8 @@ export class ApliancesProductsComponent {
   Products:ProductsApi[]=[]
   TotalProducts:string|number=0
   ProductsR:ProductsApi[]=[]
-  Section:string='Televisor'
+  Section:string='Apliances'
+  ProductType:string='Apliances'
   constructor(private ProductsService:ProductsService,private route: ActivatedRoute){}
 
   ngOnInit(){
@@ -23,7 +24,7 @@ export class ApliancesProductsComponent {
   traerinfo(){///traemos info del back end
     const myQueryParam = this.route.snapshot.queryParamMap.get('name');
     if(!myQueryParam){
-    this.ProductsService. getSomeProducts('Televisor').//accedemos al metodo que hace una peticion a la ruta que nos da los celulares
+    this.ProductsService. getSomeProducts(ProductType.Apliances).//accedemos al metodo que hace una peticion a la ruta que nos da los celulares
     subscribe((res)=>{//metodo subscribe que nos resuelve la promesa
       this.Products=res;//en nuestra variable guardamos el resultado de la peticion
       this.ProductsR=res;//guardamos tambien en nuestra variable de respaldo(respaldo para resetear,ordenar por default,etc)
@@ -31,7 +32,7 @@ export class ApliancesProductsComponent {
       this.TotalProducts=this.Products.length//Nos quedamos con la cantidad de productos y le pasamos ese total a nuestra variable
     })
     }else{
-      this.ProductsService. getSomeProducts('Televisor').//accedemos al metodo que hace una peticion a la ruta que nos da los celulares
+      this.ProductsService. getSomeProducts(ProductType.Apliances).//accedemos al metodo que hace una peticion a la ruta que nos da los celulares
     subscribe((res)=>{//metodo subscribe que nos resuelve la promesa
       this.Products=res.filter(i=>i.Brand.Name===myQueryParam);//en nuestra variable guardamos el resultado de la peticion
       this.ProductsR=res;//guardamos tambien en nuestra variable de respaldo(respaldo para resetear,ordenar por default,etc)

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Products,Model } from 'src/app/interfaces/Interfaces';
+import { Products,Model, ProductType } from 'src/app/interfaces/Interfaces';
 import { ProductsService } from 'src/app/services/products/products.service'; ///uestro servicio que nos conectara con el back end
 @Component({
   selector: 'app-admin',
@@ -14,6 +14,10 @@ export class AdminComponent {
   
       
     holamundo:string='holamundo'
+    newOption:boolean=false
+    sections:ProductType[]=[ProductType.Accesories,ProductType.Apliances,ProductType.Audiovideo,
+              ProductType.Cellphones,ProductType.Gaming,ProductType.Informatics]
+
     Model:Model={
       Name:'',
       Stock:{
@@ -27,7 +31,8 @@ export class AdminComponent {
       Image:'',
       Price:0,
       Characteristic:{},
-      Brand:''
+      Brand:'',
+      ProductType:undefined//undefined porque luego se le asignara algun valor de su enum correspondiente
     }
     updateModel<k extends keyof Model>(actualInput:k,value:Model[k]){
       this.Model[actualInput]=value
@@ -51,12 +56,20 @@ export class AdminComponent {
 
       console.log(this.newProduct,this.Model)
     }
+    seeInfo(){
+      console.log(this.sections)
+    }
+    setNewOption(){
+     this.newOption=!this.newOption
+    }
 //////////////////las que interactuan con el back
     onClick(){
        this.productservice.getAllproducts().subscribe(res=>console.log(res))
     }
     createProduct(){
-      this.productservice.createProducts(this.newProduct).subscribe(res=>console.log(res)
-      )
+      this.productservice.createProducts(this.newProduct).subscribe(res=>console.log(res))
+      setTimeout(() => {
+        location.reload()
+      }, 500);
     }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Products, ProductsApi } from 'src/app/interfaces/Interfaces';
+import { ProductType, Products, ProductsApi } from 'src/app/interfaces/Interfaces';
 import { ProductsService } from 'src/app/services/products/products.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -28,7 +28,7 @@ export class CellphoneProductsComponent {
  traerinfo(){///traemos info del back end
   const myQueryParam = this.route.snapshot.queryParamMap.get('name');
   if(!myQueryParam){
-  this.ProductsService. getSomeProducts('Celular').//accedemos al metodo que hace una peticion a la ruta que nos da los celulares
+  this.ProductsService. getSomeProducts(ProductType.Cellphones).//accedemos al metodo que hace una peticion a la ruta que nos da los celulares
   subscribe((res)=>{//metodo subscribe que nos resuelve la promesa
     this.Products=res;//en nuestra variable guardamos el resultado de la peticion
     this.ProductsR=res;//guardamos tambien en nuestra variable de respaldo(respaldo para resetear,ordenar por default,etc)
@@ -36,13 +36,12 @@ export class CellphoneProductsComponent {
     this.TotalProducts=this.Products.length//Nos quedamos con la cantidad de productos y le pasamos ese total a nuestra variable
   })
   }else{
-    this.ProductsService. getSomeProducts('Celular').//accedemos al metodo que hace una peticion a la ruta que nos da los celulares
+    this.ProductsService. getSomeProducts(ProductType.Cellphones).//accedemos al metodo que hace una peticion a la ruta que nos da los celulares
   subscribe((res)=>{//metodo subscribe que nos resuelve la promesa
     this.Products=res.filter(i=>i.Brand.Name===myQueryParam);//en nuestra variable guardamos el resultado de la peticion
     this.ProductsR=res;//guardamos tambien en nuestra variable de respaldo(respaldo para resetear,ordenar por default,etc)
     console.log(this.Products);//vemos en consola que llega del back
     this.TotalProducts=this.Products.length//Nos quedamos con la cantidad de productos y le pasamos ese total a nuestra variable
-    
   })
   }
  

@@ -14,6 +14,14 @@ export interface Model{
       stockNumber:number
    }
 }
+export enum ProductType{
+   Cellphones= 'Cellphones',
+   Audiovideo= 'Audio-video',
+   Informatics='Informatics',
+   Gaming= 'Gaming',
+   Accesories= 'Accesories',
+   Apliances= 'Apliances'
+}
 export  interface Products{
    Name:string,
    Price:number,
@@ -21,6 +29,7 @@ export  interface Products{
    Characteristic: object,
    Image:string,
    Brand:string
+   ProductType:ProductType|undefined
 }
 export  interface ProductsApi{
    Name:string,
@@ -28,6 +37,7 @@ export  interface ProductsApi{
    Model:Model[],
    Characteristic: object,
    Image:string,
+   ProductType:ProductType|undefined,
    Brand:{
       Name:string
    }
@@ -37,6 +47,4 @@ export interface BrandApi{
    Name:string,
    ProductsTypes?:boolean,
    products:ProductsApi,
-   
-
 }

@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete ,  } from '@nestjs/common';
 import { ProductsService } from './products.service';
-import { CreateProductDto } from './dto/create-product.dto';
+import { CreateProductDto, ProductType } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 ////en esta seccion, creamos las rutas donde recibimos las peticiones, y ejecutamos los distintos metodos se service,que vienen con ProductsService
 @Controller('products')//ruta products
@@ -19,7 +19,7 @@ export class ProductsController {
     return this.productsService.getAllProducts();//para una peticion get, retornamos todos los productos
   }
   @Get(':id')
-  getAllCellphones(@Param('id') id:string){
+  getAllCellphones(@Param('id') id:ProductType){
     return this.productsService.getAllCellphones(id)
   }
 

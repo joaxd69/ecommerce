@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ProductsApi } from 'src/app/interfaces/Interfaces';
+import { ProductType, ProductsApi } from 'src/app/interfaces/Interfaces';
 import { ProductsService } from 'src/app/services/products/products.service';
 import { ActivatedRoute, Router } from '@angular/router';
 @Component({
@@ -27,7 +27,7 @@ export class AudioVideoProductsComponent {
  traerinfo(){///traemos info del back end
   const myQueryParam = this.route.snapshot.queryParamMap.get('name');
   if(!myQueryParam){
-  this.ProductsService. getSomeProducts('Auricular').//accedemos al metodo que hace una peticion a la ruta que nos da los celulares
+  this.ProductsService. getSomeProducts(ProductType.Audiovideo).//accedemos al metodo que hace una peticion a la ruta que nos da los celulares
   subscribe((res)=>{//metodo subscribe que nos resuelve la promesa
     this.Products=res;//en nuestra variable guardamos el resultado de la peticion
     this.ProductsR=res;//guardamos tambien en nuestra variable de respaldo(respaldo para resetear,ordenar por default,etc)
@@ -35,7 +35,7 @@ export class AudioVideoProductsComponent {
     this.TotalProducts=this.Products.length//Nos quedamos con la cantidad de productos y le pasamos ese total a nuestra variable
   })
   }else{
-    this.ProductsService. getSomeProducts('Auricular').//accedemos al metodo que hace una peticion a la ruta que nos da los celulares
+    this.ProductsService. getSomeProducts(ProductType.Audiovideo).//accedemos al metodo que hace una peticion a la ruta que nos da los celulares
   subscribe((res)=>{//metodo subscribe que nos resuelve la promesa
     this.Products=res.filter(i=>i.Brand.Name===myQueryParam);//en nuestra variable guardamos el resultado de la peticion
     this.ProductsR=res;//guardamos tambien en nuestra variable de respaldo(respaldo para resetear,ordenar por default,etc)

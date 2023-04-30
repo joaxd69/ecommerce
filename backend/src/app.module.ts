@@ -22,7 +22,7 @@ import { Model } from './models/entities/model.entity';
     entities: [Product,Brand,Model],
     synchronize:true,
     logging:true,
-    // dropSchema:true //para resetear la base de datos
+    dropSchema:true //para resetear la base de datos 
   }),
     ProductsModule,
     BrandsModule,

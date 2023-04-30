@@ -1,3 +1,37 @@
-<div>
-    <app-sections-titles [Title]="Title"></app-sections-titles>
+<div class="PrincipalContainer">
+    <section class="TitleSection">
+ 
+       <app-sections-titles 
+       [Title]="Title"
+       [TotalProducts]="TotalProducts"
+       (Filters)="OrderProducts($event)"
+       />
+    </section>
+       
+   
+    <section class="ContentSection">
+        
+       <section class="FilterSection">
+         <app-filters
+         (Filters)="FilterByBrands($event)"
+         [actualsection]="Section"
+         [ProductType]="ProductType"
+         (Filterbymodel)="FilterByModels($event)"
+         />
+       </section>
+       
+        <div class="CardsContainer">
+          <div *ngFor="let apliances of Products ,let i =index,"  class="Cards">
+       
+           <app-products-cards
+             [Model]="apliances.Model[0].Name"
+             [Image]="apliances.Image"
+             [Type]="apliances.Name"
+             [Brand]="apliances.Brand.Name"
+             [Price]="apliances.Price"
+             />
+           </div>
+        </div>
+        
+    </section>
 </div>

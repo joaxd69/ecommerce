@@ -1,4 +1,5 @@
 import { Component,Output,EventEmitter, Input } from '@angular/core';
+import { ProductsApi } from 'src/app/interfaces/Interfaces';
 import { ProductsService } from 'src/app/services/products/products.service';
 
 @Component({
@@ -11,19 +12,21 @@ export class FiltersComponent {
   Models:any[]=[]
   ModelsBuckup:any[]=[]
   @Input()
-  actualsection=''
+  actualsection:string=''
+  @Input()
+  ProductType:string=''
   constructor(private ProductService:ProductsService ){
   }
   ngOnInit(){
     this.ProductService.getAllBrands().subscribe(res=>{
-      this.Brands=res.filter(i=>i.products.map((name:any)=>name.Name).includes(this.actualsection))
-       this.Brands= this.Brands.map(i=>i.Name);
-       
+      this.Brands=res.filter(i=>i.products.map((p:any)=>p.Name).includes(this.actualsection)||
+                                i.products.map((p:ProductsApi)=>p.ProductType).includes(this.ProductType))
+      this.Brands= this.Brands.map(i=>i.Name);
       })
       
     this.ProductService.getAllModels().subscribe(res=>{
-     this.Models= res.filter(i=>i.Product.Name===this.actualsection);
-     this.ModelsBuckup=res.filter(i=>i.Product.Name===this.actualsection)
+     this.Models= res.filter(i=>i.Product.ProductType===this.actualsection);
+     this.ModelsBuckup=res.filter(i=>i.Product.ProductType===this.actualsection)
     })
   }
 

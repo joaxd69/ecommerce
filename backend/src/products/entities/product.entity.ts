@@ -1,6 +1,7 @@
 import {Entity,Column,PrimaryGeneratedColumn,ManyToOne,JoinColumn, OneToMany} from 'typeorm'
 import { Brand } from 'src/brands/entities/brand.entity'
 import { Model } from 'src/models/entities/model.entity'
+import { ProductType } from '../dto/create-product.dto'
 @Entity({name:"products"})//declaramos la entidad y le asignamos un nombre a la tabla
 export class Product {
     @PrimaryGeneratedColumn('uuid')///para la tabla
@@ -8,7 +9,9 @@ export class Product {
 
     @Column('varchar',{nullable:false})//en caso que no le asignemor el tipo  en el decorador, type orm se lo definira en base al tipo de dato que le pasemos abajo en el nombre de  la propiedad
     Name:string
-
+    
+    @Column({ type: 'enum', enum:ProductType })
+    ProductType:ProductType
     @Column('float',{nullable:false})
     Price:number
  

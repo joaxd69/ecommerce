@@ -3,13 +3,31 @@
     <section class="FormSection">
       <form action="" class="Form">
          <h4>Agregar producto</h4>
-        <label for="">*Producto?(celular,televisor,etc)</label>
-        <input type="text" (input)="onChange($event,false)" name="Name">
+
+         
+         <label for="">*Producto?(celular,televisor,etc)
+          <button type="button" (click)="setNewOption()" >Nuevo+</button>
+         </label>
+
+         <select *ngIf="!newOption" (input)="onChange($event,false)" name="Name" >
+           <option >Elegir</option>
+           <option value="Celular">Celular</option>
+           <option value="Televisor" >Televisor</option>
+           <option value="Auricular">Auricular </option>
+           <option value="Parlante">Parlante</option>
+         </select>
+         <input type="text" *ngIf="newOption" (input)="onChange($event,false)" name="Name">
+
         <label for="">*Marca</label>
         <input type="text"  (input)="onChange($event,false)" name="Brand">
         
         <label for="">*Nombre/modelo</label>
         <input type="text" (input)="onChange($event,true)" name="Name">
+        <label for="">*Tipo de producto</label>
+        
+        <select  (input)="onChange($event,false)" name="ProductType" >
+          <option *ngFor="let section of sections, let i=index" >{{section}}</option>
+        </select>
 
         <label for="">*Precio</label>
         <input type="number" (input)="onChange($event,false)" name="Price">
@@ -34,7 +52,7 @@
     </section>
 
     <button (click)="onClick()">Ver </button>
-
+    <button (click)="seeInfo()">info sections</button>
 
     
 </div>
