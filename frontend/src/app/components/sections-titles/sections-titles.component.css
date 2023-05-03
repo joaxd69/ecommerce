@@ -1,6 +1,24 @@
+.imageContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+}
 .Container{
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid black;
+}
+.TitleSection{
+    font-size: 25px;
+    margin: 0;
+
+}
+.OptionsSection{
+    font-size: 23px;
+}
+.OptionsSection select{
+    font-size: 18px;
+    padding: 5px;
 }

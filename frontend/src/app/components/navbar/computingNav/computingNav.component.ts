@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { BrandApi } from 'src/app/interfaces/Interfaces';
 
 @Component({
   selector: 'app-computing',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./computingNav.component.css']
 })
 export class ComputingComponent {
+  @Input()
+  Brands:BrandApi[]=[]
 
+  reloadPage(): void {
+   setTimeout(() => {
+      window.location.reload();
+   }, 1);
+  }
 }

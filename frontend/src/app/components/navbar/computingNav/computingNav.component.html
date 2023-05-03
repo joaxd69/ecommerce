@@ -21,23 +21,10 @@
     
         <section>
             <h5>Marcas</h5>
-            <span>Lenovo</span>
-            <span>Hp</span>
-            <span>Asus</span> 
-            <span>Comstar</span> 
-            <span>Blackview</span> 
-            <span>Intouch</span> 
-    
-            <span>Argom</span>
-            <span>Cougar</span>
-            <span>Marvo</span>
-            <span>Maxell</span>
-            <span>Meetion</span>
-            <span>Mercusys</span>
-            <span>Razeak</span>
-            <span>Universal</span>
-            <span>Rigal</span>
-        </section>
+            <div *ngFor="let brand of Brands, let i =index" class="options">
+                 <button value={{brand.Name}}  [routerLink]="['/Computing']" [queryParams]="{name:brand.Name}" (click)="reloadPage()">{{brand.Name}}</button>
+            </div>
+             </section>
     
     
    

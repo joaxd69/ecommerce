@@ -13,8 +13,9 @@ export class AudioVideoProductsComponent {
   Products:ProductsApi[]=[]
   ProductsR:ProductsApi[]=[]
   TotalProducts:number=0
-  Section:string='Auricular'
+  Section:string='Audiovideo'
   mensaje :string=''
+  ProductType:string='Audiovideo'
  ngOnInit(){
   this.traerinfo()
 

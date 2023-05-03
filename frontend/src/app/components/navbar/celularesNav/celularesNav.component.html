@@ -5,7 +5,7 @@
     <div *ngFor="let brand of Brands, let i =index" class="options">
          <button value={{brand.Name}}  [routerLink]="['/cellphones']" [queryParams]="{name:brand.Name}" (click)="reloadPage()">{{brand.Name}}</button>
     </div>
-</section>
+     </section>
     <section>
     <h5>Memoria</h5>
     <span>1gb</span>

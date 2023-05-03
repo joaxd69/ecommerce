@@ -10,6 +10,7 @@ import { ProductsService } from 'src/app/services/products/products.service';
 export class CelularesComponent {
    @Input()
    Brands:BrandApi[]=[]
+
    reloadPage(): void {
     setTimeout(() => {
        window.location.reload();

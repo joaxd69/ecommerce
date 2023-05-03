@@ -14,7 +14,8 @@ export class CellphoneProductsComponent {
   Products:ProductsApi[]=[]
   ProductsR:ProductsApi[]=[]
   TotalProducts:number=0
-  Section:string='Celular'
+  Section:string='Cellphones'
+  ProductType:string='Cellphones'
   mensaje :string=''
  ngOnInit(){
   this.traerinfo()

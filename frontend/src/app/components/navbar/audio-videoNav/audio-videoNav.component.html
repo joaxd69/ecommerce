@@ -6,16 +6,10 @@
     <span> Parlantes</span> 
 </section>
 
- <section>  
-    <h5>Marca</h5>
-    <span> Apple</span>
-    <span> Blackview</span> 
-    <span> Foxbox</span> 
-    <span> Motorola</span> 
-    <span> Philips</span> 
-    <span> PureGear</span> 
-    <span> Sony</span> 
-    <span> Xiaomi</span> 
+<section>
+    <h5>Marcas</h5>
+    <div *ngFor="let brand of Brands, let i =index" class="options">
+         <button value={{brand.Name}}  [routerLink]="['/Audiovideo']" [queryParams]="{name:brand.Name}" (click)="reloadPage()">{{brand.Name}}</button>
+    </div>
  </section>
- 
 </div>

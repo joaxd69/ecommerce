@@ -27,6 +27,7 @@ export class FiltersComponent {
     this.ProductService.getAllModels().subscribe(res=>{
      this.Models= res.filter(i=>i.Product.ProductType===this.actualsection);
      this.ModelsBuckup=res.filter(i=>i.Product.ProductType===this.actualsection)
+     console.log(res)
     })
   }
 

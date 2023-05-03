@@ -4,7 +4,7 @@ import { Model } from "src/models/entities/model.entity";
 ////usaremos el dto para tipar los datos que podamos recibir por body por ejemplo, basicamente tipa como se precisas en la entidad/tabla Products
 export enum ProductType{
     Cellphones= 'Cellphones',
-    Audiovideo= 'Audio-video',
+    Audiovideo= 'Audiovideo',
     Informatics='Informatics',
     Gaming= 'Gaming',
     Accesories= 'Accesories',

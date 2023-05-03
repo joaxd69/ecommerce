@@ -1,9 +1,17 @@
 .Cards{
-   border: 1px solid rgb(167, 164, 164);
+   border: 2px solid rgb(211, 211, 211);
    display: flex;
    flex-direction: column;
+   justify-content: center;
    align-items: center;
- 
+   margin-left: 2rem;
+   margin-right: 2rem;
+   cursor: pointer;
+   height: 28rem;
+}
+.Cards:hover{
+    border: 2px solid rgb(1, 12, 77);
+    background-color: rgb(245, 243, 241);
 }
 .Cards span{
     font-size: 18px;
@@ -12,10 +20,14 @@
     padding: 5px;
     background-color: white;
     border-radius:20px ;
-    width: 80%;
+    width: 95%;
     border: solid 1px blue;
     font-size: 16px;
     color: blue;
     margin: 10px;
-
+    cursor: pointer;
+}
+.Cards button:hover{
+    background-color: blue;
+    color: white;
 }

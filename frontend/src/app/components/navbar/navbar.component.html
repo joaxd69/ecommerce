@@ -1,34 +1,34 @@
-<div>
+<div> 
     <div class="container">
-    <section id="section1">
-        <h1 [routerLink]="['/']">Joa market</h1>
+    <section id="section1">        
+      <img src="../../../assets/JOAMARKET.jpeg" [routerLink]="['/']" alt="logo" width="125" height="75">
     </section>
  
     <section id="section2">
         <!-- mouseenter activa el boton ,da click al pasar el cursor -->
-        <span (mouseenter)="change('cellphone')"  [routerLink]="['/cellphones']">Celulares </span>
-        <span (mouseenter)="change('AudioVideo')" [routerLink]="['/Audiovideo']">Audio y video </span>
-        <span (mouseenter)="change('Informatica')" [routerLink]="['/Computing']">Informatica </span>
-        <span (mouseenter)="change('Gaming')" [routerLink]="['/Gaming']">Gaming </span> 
-        <span (mouseenter)="change('Accesories')" [routerLink]="['/Accesories']">Accesorios </span> 
-        <span (mouseenter)="change('Apliances')" [routerLink]="['/Apliances']">Electrodomesticos </span>
-
-        <section id="section4" >
-            <app-celulares [Brands]="Brands" *ngIf='sections.cellphone'> </app-celulares>
-            <app-audio-video *ngIf='sections.AudioVideo'></app-audio-video>
-            <app-accessories *ngIf='sections.Accesories'></app-accessories>
-            <app-computing *ngIf='sections.Informatica'></app-computing>
-            <app-gaming *ngIf='sections.Gaming'></app-gaming>
-            <app-apliances *ngIf='sections.Apliances'  ></app-apliances>
-        </section>
-
+        <span class="SectionOptions" (mouseenter)="change('Cellphones')"  [routerLink]="['/cellphones']">Celulares </span>
+        <span class="SectionOptions" (mouseenter)="change('Audiovideo')" [routerLink]="['/Audiovideo']">Audio y video </span>
+        <span class="SectionOptions" (mouseenter)="change('Informatics')" [routerLink]="['/Computing']">Informatica </span>
+        <span class="SectionOptions" (mouseenter)="change('Gaming')" [routerLink]="['/Gaming']">Gaming </span> 
+        <span class="SectionOptions" (mouseenter)="change('Accesories')" [routerLink]="['/Accesories']">Accesorios </span> 
+        <span class="SectionOptions" (mouseenter)="change('Apliances')" [routerLink]="['/Apliances']">Electrodomesticos </span>
     </section>
-
+    
     <section id="section3">
+        <button (click)="veroptions()">ver opciones</button>
         <button [routerLink]="['/Admin']">Admin</button>
         <button>buscar</button>
         <button>carrito</button>
     </section>
-
+    
 </div>
+<div id="section4" >
+    <app-celulares [Brands]="Brands" *ngIf='sections.Cellphones'> </app-celulares>
+    <app-audio-video [Brands]="Brands"  *ngIf='sections.Audiovideo'></app-audio-video>
+    <app-accessories *ngIf='sections.Accesories'></app-accessories>
+    <app-computing [Brands]="Brands"*ngIf='sections.Informatics'></app-computing>
+    <app-gaming *ngIf='sections.Gaming'></app-gaming>
+    <app-apliances *ngIf='sections.Apliances'  ></app-apliances>
+</div>
+
 </div>

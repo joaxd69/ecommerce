@@ -1,8 +1,8 @@
 
 export  interface sections{
-   cellphone:boolean,
-   AudioVideo:boolean,
-   Informatica:boolean,
+   Cellphones:boolean,
+   Audiovideo:boolean,
+   Informatics:boolean,
    Gaming:boolean,
    Accesories:boolean,
    Apliances:boolean,
@@ -15,8 +15,9 @@ export interface Model{
    }
 }
 export enum ProductType{
+   default='',
    Cellphones= 'Cellphones',
-   Audiovideo= 'Audio-video',
+   Audiovideo= 'Audiovideo',
    Informatics='Informatics',
    Gaming= 'Gaming',
    Accesories= 'Accesories',
@@ -45,6 +46,6 @@ export  interface ProductsApi{
 export interface BrandApi{
    Id:string,
    Name:string,
-   ProductsTypes?:boolean,
-   products:ProductsApi,
+   ProductsTypes?:ProductType,
+   products:[ProductsApi],
 }
