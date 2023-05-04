@@ -104,9 +104,14 @@ export class AdminComponent {
       if(Object.entries(this.Error).length)
         return alert('Revisa los Errores')
       
-      this.productservice.createProducts(this.newProduct).subscribe(res=>console.log(res))
-      setTimeout(() => {
-        location.reload()
-      }, 500);
+      this.productservice.createProducts(this.newProduct).subscribe(res=>{
+        alert('Producto creado!')
+        setTimeout(() => {
+          location.reload()
+        }, 500);
+      },error=>{
+        alert('Ups algo salio mal!')
+      })
+     
     }
 }

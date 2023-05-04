@@ -50,19 +50,18 @@ export class NavbarComponent {
     options.forEach((ops)=>{
       ops.addEventListener('mouseover',()=>{
         section4.style.display='block'
-        console.log('aqui entro ')
       })
       section4.addEventListener('mouseover',()=>{
         section4.style.display='block'
-        console.log('lo dejo visible')
+      
       })
       section4.addEventListener('mouseleave',()=>{
         section4.style.display='none'
-        console.log('saco el mouse y lo dejo invisible')
+       
       })
       ops.addEventListener('mouseleave',()=>{
          section4.style.display= 'none'
-         console.log('aqui me piro vampiro')
+       
       })
     })
   }

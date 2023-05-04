@@ -56,4 +56,35 @@ padding: 7px;
     background-color: blue;
 }
 
-
+@media(max-width:600px){
+    .FormSection{
+        width: 100%;
+    }
+    .Form{
+    width: 85%;
+    }
+    .Form article{
+        flex-direction: column;
+        align-items:start;
+    }
+    .Form select{
+        width: 100%;
+    }
+    /* .Form select option{
+        color: aquamarine;
+    } */
+    .Form article input{
+      
+        width: 100%;
+    }
+    .buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    }
+    .buttons button{
+        width: fit-content;
+       
+    }
+}

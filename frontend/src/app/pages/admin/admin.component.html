@@ -77,13 +77,15 @@
            <input type="number" (input)="updateStock($event)" id="" value="{{Model.Stock.stockNumber}}">
          </article>
 
-         <article class="buttons">
+         <div class="buttons">
+
            <button (click)="createProduct()" type="button" class="Submit">Crear</button>
            <span *ngIf="visibleErrors&& Error.General" style="color: red;">
             {{Error.General}}
           </span>
            <button type="button" (click)="resetfields()" class="Cancel">Borrar campos</button>
-         </article>
+        
+          </div>
 
      </form>
     </section>
