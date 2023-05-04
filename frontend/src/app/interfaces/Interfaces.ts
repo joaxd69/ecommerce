@@ -49,3 +49,20 @@ export interface BrandApi{
    ProductsTypes?:ProductType,
    products:[ProductsApi],
 }
+export interface modelvalidator{
+   Name?:string,
+   Stock?:{
+      avaliable?:boolean,
+      stockNumber?:number
+   }
+}
+export interface Errorvalidators {
+   General?:string,
+   Name?:string,
+   Price?:string,
+   Model?:string,
+   Characteristic?: string,
+   Image?:string,
+   Brand?:string
+   ProductType?:string
+}

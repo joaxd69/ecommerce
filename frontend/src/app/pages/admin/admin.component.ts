@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { Products,Model, ProductType } from 'src/app/interfaces/Interfaces';
+import { Products,Model, ProductType, Errorvalidators } from 'src/app/interfaces/Interfaces';
 import { ProductsService } from 'src/app/services/products/products.service'; ///uestro servicio que nos conectara con el back end
+import { Validator } from 'src/app/utils/validators';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -34,6 +35,12 @@ export class AdminComponent {
       Brand:'',
       ProductType:undefined//undefined porque luego se le asignara algun valor de su enum correspondiente
     }
+    visibleErrors:boolean=false
+    Error:Errorvalidators={}
+    
+    ngOnInit(){
+      this.Error.General='Completa los campos necesarios'
+    }
     updateModel<k extends keyof Model>(actualInput:k,value:Model[k]){
       this.Model[actualInput]=value
     }
@@ -53,8 +60,8 @@ export class AdminComponent {
       const actualInput=(event.target as HTMLInputElement).name;
       !model?this.updateObject(actualInput as keyof Products,valorInput):
       this.updateModel(actualInput as keyof Model,valorInput)
-
-      console.log(this.newProduct,this.Model)
+     this.Error=Validator(this.newProduct)
+      console.log(this.Error)
     }
     seeInfo(){
       console.log(this.sections)
@@ -62,11 +69,41 @@ export class AdminComponent {
     setNewOption(){
      this.newOption=!this.newOption
     }
+    resetfields(){
+      let modelreset={
+        Name:'',
+        Stock:{
+          avaliable:true,
+          stockNumber:0
+        }
+      }
+
+      let reset={
+        Name:'',
+        Model:modelreset,
+        Image:'',
+        Price:0,
+        Characteristic:{},
+        Brand:'',
+        ProductType:undefined//undefined porque luego se le asignara algun valor de su enum correspondiente
+      }
+      this.newProduct=reset
+      this.Model=modelreset
+      console.log(this.Model)
+    }
+    
 //////////////////las que interactuan con el back
     onClick(){
        this.productservice.getAllproducts().subscribe(res=>console.log(res))
     }
     createProduct(){
+      this.visibleErrors=true
+      if(this.Error.General){
+        return alert(this.Error.General)
+      }
+      if(Object.entries(this.Error).length)
+        return alert('Revisa los Errores')
+      
       this.productservice.createProducts(this.newProduct).subscribe(res=>console.log(res))
       setTimeout(() => {
         location.reload()

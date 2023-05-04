@@ -1,24 +1,59 @@
-.FirstContainer{
-    background-color: rgb(66, 66, 66);
+.FormSection{
     display: flex;
     flex-direction: column;
-    align-items: center;
-}
-.FormSection{
-    width: 350px;
+    justify-content: center;
 }
 .Form{
-    padding: 10px;
-    background-color: rgb(115, 175, 152);
-    display: flex;
-    flex-direction: column;
-}
-.Form input{
-    padding: 5px;
-    border: none;
-}
-.FormSection button{
-    display: inline-block;
     margin: 0 auto;
-    background-color: rgb(223, 146, 45);
+    display: flex;
+    background-color: rgb(170, 170, 170);
+    width: 70%;
+    flex-direction: column;
+    padding: 20px;
 }
+.Form article{
+
+ margin: 5px;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+}
+.Form label{
+    color: rgb(2, 2, 2);
+    font-size: 1.1rem;
+}
+.Form select{
+    width: 73%;
+    padding: 5px;
+    font-size: 1rem;
+}
+
+.Form input{
+width: 70%;
+padding: 7px;
+
+}
+
+.buttons button{
+    padding: 5px;
+    width: 100px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border: none;
+    color: aliceblue;
+    cursor: pointer;
+}
+.Submit{
+    background-color:rgb(10, 103, 179) ;
+}
+.Cancel{
+    background-color: rgb(223, 43, 43);
+}
+.Cancel:hover{
+    background-color: darkred;
+}
+.Submit:hover{
+    background-color: blue;
+}
+
+

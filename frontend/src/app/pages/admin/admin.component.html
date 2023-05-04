@@ -1,59 +1,91 @@
 <div class="FirstContainer" >
-    <h1>Hi admin</h1>
     <section class="FormSection">
+     
       <form action="" class="Form">
+        <div>
+          <button>Editar algun producto</button>
+        </div>
          <h4>Agregar producto</h4>
-
-         
-         <label for="">*Producto?(celular,televisor,etc)
-          <button type="button" (click)="setNewOption()" >Nuevo+</button>
-         </label>
-
-         <select *ngIf="!newOption" (input)="onChange($event,false)" name="Name" >
-           <option >Elegir</option>
-           <option value="Celular">Celular</option>
-           <option value="Televisor" >Televisor</option>
-           <option value="Auricular">Auricular </option>
-           <option value="Parlante">Parlante</option>
-         </select>
-         <input type="text" *ngIf="newOption" (input)="onChange($event,false)" name="Name">
-
-        <label for="">*Marca</label>
-        <input type="text"  (input)="onChange($event,false)" name="Brand">
-        
-        <label for="">*Nombre/modelo</label>
-        <input type="text" (input)="onChange($event,true)" name="Name">
-        <label for="">*Tipo de producto</label>
-        
-        <select  (input)="onChange($event,false)" name="ProductType" >
-          <option *ngFor="let section of sections, let i=index" >{{section}}</option>
-        </select>
-
-        <label for="">*Precio</label>
-        <input type="number" (input)="onChange($event,false)" name="Price">
-
-        <label for="">*Imagen</label>
-        <input type="text" (input)="onChange($event,false)" name="Image">
-         
-        <label for="">*Stock?</label> 
-
-            <select name="" (change)="updateStock($event)" >
-                <option value="true">Si</option>
-                <option value="false">No</option>
-            </select>
-      <label>*Cantidad de stock:</label>
-
-      <input type="number" (input)="updateStock($event)" id="">
-
-    </form>
-
-     <button (click)="createProduct()">Crear</button>
-    <button>Agregar</button>
-    </section>
-
-    <button (click)="onClick()">Ver </button>
-    <button (click)="seeInfo()">info sections</button>
-
     
+         <article>
+           <label for="">*Producto:</label>
+           <select *ngIf="!newOption" (input)="onChange($event,false)" name="Name" >
+             <option >Elegir</option>
+             <option value="Celular">Celular</option>
+             <option value="Televisor" >Televisor</option>
+             <option value="Auricular">Auricular </option>
+             <option value="Parlante">Parlante</option>
+            </select>
+            <button type="button" (click)="setNewOption()">Nuevo+</button>
+            <input type="text" *ngIf="newOption" (input)="onChange($event,false)" name="Name">
+          </article>
+          <span *ngIf="visibleErrors&& Error.Name" style="color: red;">
+            {{Error.Name}}
+          </span>
+   
+         <article>
+           <label for="">*Marca</label>
+           <input type="text"  (input)="onChange($event,false)" name="Brand" value={{newProduct.Brand}}>
+         </article>
+         <span *ngIf="visibleErrors&& Error.Brand" style="color: red;">
+          {{Error.Brand}}
+        </span>
+         <article>
+           <label for="">*Nombre/modelo</label>
+           <input type="text" (input)="onChange($event,true)" name="Name" value={{Model.Name}}>
+         </article>
+         <span *ngIf="visibleErrors&& Error.Model" style="color: red;">
+          {{Error.Model}}
+        </span>
+        
+         <article>
+           <label for="">*Tipo de producto</label>
+             <select  (input)="onChange($event,false)" name="ProductType"  >
+             <option *ngFor="let section of sections, let i=index" >{{section}}</option>
+           </select>
+         </article>
+         <span *ngIf="visibleErrors&& Error.ProductType" style="color: red;">
+          {{Error.ProductType}}
+        </span>
+         
+         <article>
+           <label for="">*Precio</label>
+           <input type="number" (input)="onChange($event,false)" name="Price" value="{{newProduct.Price}}">
+         </article>
+         <span *ngIf="visibleErrors&& Error.Price" style="color: red;">
+          {{Error.Price}}
+        </span>
+
+         <article>
+           <label for="">*Imagen</label>
+           <input type="text" (input)="onChange($event,false)" name="Image" value="{{newProduct.Image}}">
+         </article>
+         <span *ngIf="visibleErrors&& Error.Image" style="color: red;">
+          {{Error.Image}}
+        </span>
+         
+         <article>
+           <label for="">*Stock?</label> 
+               <select name="" (change)="updateStock($event)" >
+                   <option value="true">Si</option>
+                   <option value="false">No</option>
+               </select>
+         </article>
+
+         <article>
+           <label>*Cantidad de stock:</label>
+           <input type="number" (input)="updateStock($event)" id="" value="{{Model.Stock.stockNumber}}">
+         </article>
+
+         <article class="buttons">
+           <button (click)="createProduct()" type="button" class="Submit">Crear</button>
+           <span *ngIf="visibleErrors&& Error.General" style="color: red;">
+            {{Error.General}}
+          </span>
+           <button type="button" (click)="resetfields()" class="Cancel">Borrar campos</button>
+         </article>
+
+     </form>
+    </section>
 </div>
 
