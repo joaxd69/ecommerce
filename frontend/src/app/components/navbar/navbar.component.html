@@ -2,8 +2,8 @@
     <div class="container">
      <input type="checkbox" id="Menucheck">
 
-     <label for="Menucheck">
-         <fa-icon [icon]="Linkedin" class="Menu" (click)="seemenu()"></fa-icon>
+     <label for="Menucheck" class="Menu"  >
+         <fa-icon [icon]="Menu" (click)="seemenu()"></fa-icon>
      </label>
 
     <section id="section1">        
@@ -21,9 +21,18 @@
     </section>
     
     <section id="section3">
-        <button [routerLink]="['/Admin']">Admin</button>
-        <button>buscar</button>
-        <button>carrito</button>
+        <article>
+            <fa-icon [routerLink]="['/Admin']" [icon]="Admin" class="icons"/>
+            <span>Admin</span>
+        </article>
+        <article>
+            <fa-icon [icon]="Search" class="icons"/>
+            <span>Search</span>
+        </article>
+        <article>
+            <fa-icon [icon]="Carret" class="icons"/>
+            <span>cart</span>
+        </article>
     </section>
     
 </div>

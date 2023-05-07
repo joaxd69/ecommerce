@@ -9,16 +9,21 @@ import { Brand } from './brands/entities/brand.entity';
 import { ModelsModule } from './models/models.module';
 import { Model } from './models/entities/model.entity';
 
+import * as dotenv from 'dotenv';
+
+dotenv.config(); // cargar las variables de entorno desde el archivo .env
+const {PGPORT,PGDATABASE,PGHOST,PGPASSWORD,PGUSER}=process.env
+
 
 @Module({
-  imports:  [
+  imports:  [ 
     TypeOrmModule.forRoot({
       type: "postgres",
-      host: "localhost",
-      port: 4000,
-      username: "postgres",
-    password: "Maria_07",
-    database: "ecommerce",
+      host: PGHOST,
+      port: parseInt(PGPORT),
+      username: PGUSER,
+    password: PGPASSWORD,
+    database: PGDATABASE,
     entities: [Product,Brand,Model],
     synchronize:true,
     logging:true,

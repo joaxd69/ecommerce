@@ -34,8 +34,28 @@ color: white;
 
   
 #section3{
-    
-    border: 2px solid;
+    display: flex;
+    justify-content: space-between;
+}
+#section3 article{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin: 10px;
+    color: white;
+}
+.icons{
+    color:white;
+    margin: 5px;
+    font-size: 20px;
+}
+#section3 article:hover{
+    color: #9e9d9d;
+}
+.icons:hover{
+    color: #9e9d9d;
 }
 #section4{
   background-color: rgb(255, 255, 255);

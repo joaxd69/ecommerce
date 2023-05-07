@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import {sections,Products, BrandApi, ProductType} from '../../interfaces/Interfaces'
 import { ProductsService } from 'src/app/services/products/products.service';
 // import { bar} from '@fortawesome/free-brands-svg-icons';
-import { faBars} from '@fortawesome/free-solid-svg-icons';
+import { faBars, faCartShopping, faSearch, faUserCog, faUserShield, faUserTie} from '@fortawesome/free-solid-svg-icons';
 // import { } from '@fortawesome/free-regular-svg-icons';
 @Component({
   selector: 'app-navbar',
@@ -11,7 +11,10 @@ import { faBars} from '@fortawesome/free-solid-svg-icons';
   template:'<span #span>Audio y video </span>'
 })
 export class NavbarComponent {
-    Linkedin=faBars
+    Menu=faBars
+    Carret=faCartShopping
+    Admin=faUserCog
+    Search=faSearch
   sections:sections={
     Cellphones:false,
     Audiovideo:false,
