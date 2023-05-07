@@ -4,16 +4,17 @@
     height: 75px;
     display: flex;
     align-items: center;
-    justify-content:space-around;
+    justify-content:space-between;
 }
 #section1{
     color: antiquewhite;
-
-    display: inline-block;
+    display:flex;
+    align-items: center;
 }
-#section1 h1{
-    font-size: 30px;
-    letter-spacing: 1px;
+
+.Menu{
+  font-size: 40px;
+  display: none;
 }
 #section2{
     color: rgb(198, 199, 199);
@@ -49,7 +50,36 @@ color: white;
   right: 12%;
 }
 
+#Menucheck{
+    display: none;
+}
 
 #section4 h1{
   margin: 0 auto;
+}
+.MenuResp{
+    display: none;
+}
+@media (max-width:950px) {
+
+    .Menu{
+        display: block;
+        cursor: pointer;
+        color: #bebdbd;
+      
+   
+        top: 0;
+    }
+    .Menu:hover{
+        color: white;
+    }
+    #section1{
+     background-color: #bebdbd;   
+    }
+   #section2{
+     display: none;
+   }
+   #Menucheck:checked~.MenuResp{
+    display: block;
+}
 }

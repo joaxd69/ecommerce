@@ -1,9 +1,15 @@
 <div> 
     <div class="container">
+     <input type="checkbox" id="Menucheck">
+
+     <label for="Menucheck">
+         <fa-icon [icon]="Linkedin" class="Menu" (click)="seemenu()"></fa-icon>
+     </label>
+
     <section id="section1">        
       <img src="../../../assets/JOAMARKET.jpeg" [routerLink]="['/']" alt="logo" width="125" height="75">
     </section>
- 
+     <app-menuresponsive class="MenuResp"  *ngIf="responsive"> </app-menuresponsive>
     <section id="section2">
         <!-- mouseenter activa el boton ,da click al pasar el cursor -->
         <span class="SectionOptions" (mouseenter)="change('Cellphones')"  [routerLink]="['/cellphones']">Celulares </span>
@@ -14,11 +20,11 @@
         <span class="SectionOptions" (mouseenter)="change('Apliances')" [routerLink]="['/Apliances']">Electrodomesticos </span>
     </section>
     
-    <!-- <section id="section3">
+    <section id="section3">
         <button [routerLink]="['/Admin']">Admin</button>
         <button>buscar</button>
         <button>carrito</button>
-    </section> -->
+    </section>
     
 </div>
 <div id="section4" >

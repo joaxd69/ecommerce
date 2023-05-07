@@ -25,3 +25,9 @@ span{
 span:hover{
     background-color: rgb(212, 216, 216);
 }
+@media(max-width:950px){
+    div{
+        display: flex;
+        flex-direction: column;
+    }
+}

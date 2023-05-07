@@ -1,0 +1,46 @@
+<section class="NavrespContainer">
+      <div  id="navresponsive">
+          <!-- click activa el boton ,da click al pasar el cursor -->
+          <div>
+            <label for="Menucheck">
+                <fa-icon [icon]="Linkedin" class="Menu" ></fa-icon>
+            </label>
+          </div>
+          <article>
+              <span   [routerLink]="['/cellphones']">Celulares  </span>
+              <button (click)="change('Cellphones')">+</button>
+            </article>
+            <app-celulares [Brands]="Brands" *ngIf='sections.Cellphones'> </app-celulares>
+            
+            <article>
+                <span    [routerLink]="['/Audiovideo']">Audio y video </span>
+                <button (click)="change('Audiovideo')">+</button>
+            </article>
+            <app-audio-video [Brands]="Brands"  *ngIf='sections.Audiovideo'></app-audio-video>
+            
+            <article>
+                <span    [routerLink]="['/Computing']">Informatica </span>
+                
+                
+                <button (click)="change('Informatics')">+</button>
+            </article>
+            <app-computing [Brands]="Brands"*ngIf='sections.Informatics'></app-computing>
+
+            <article>
+                <span    [routerLink]="['/Gaming']">Gaming </span> 
+                <button  (click)="change('Gaming')" >+</button>
+            </article>
+            <app-gaming *ngIf='sections.Gaming'></app-gaming>
+            <article>
+                <span    [routerLink]="['/Accesories']">Accesorios </span> 
+                <button (click)="change('Accesories')" >+</button>
+            </article>
+            <app-accessories *ngIf='sections.Accesories'></app-accessories>
+           <article>
+               <span    [routerLink]="['/Apliances']">Electrodomesticos </span>
+               <button (click)="change('Apliances')">+</button>
+           </article>
+           <app-apliances *ngIf='sections.Apliances'  ></app-apliances>
+      </div>
+
+</section>

@@ -22,8 +22,9 @@ import { GamingProductsComponent } from './pages/gaming-products/gaming-products
 import { ApliancesProductsComponent } from './pages/apliances-products/apliances-products.component';
 import { FiltersComponent } from './components/filters/filters.component';
 import { ProductsCardsComponent } from './components/products-cards/products-cards.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CommonModule } from '@angular/common';
-
+import { MenuresponsiveComponent } from './components/menuresponsive/menuresponsive.component';
 @NgModule({
   declarations: [///nuestros componentes de la aplicacion
     AppComponent,
@@ -48,11 +49,13 @@ import { CommonModule } from '@angular/common';
     ApliancesProductsComponent,
     FiltersComponent,
     ProductsCardsComponent,
+    MenuresponsiveComponent,
   ],
   imports: [///modulos que nos serviran en distintos ambitos
-    BrowserModule,
-    AppRoutingModule,///para crear rutas
-    HttpClientModule///para hacer acciones asincronas como conectar al back end , ver capeta services
+  BrowserModule,
+  AppRoutingModule,///para crear rutas
+  HttpClientModule,///para hacer acciones asincronas como conectar al back end , ver capeta services
+  FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
