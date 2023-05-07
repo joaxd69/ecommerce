@@ -35,3 +35,29 @@ button{
 button:hover{
     background-color: rgb(212, 216, 216);
 }
+@media(max-width:950px){
+    .PrincipalContainer{
+        flex-direction: column;
+       
+    }
+    section{
+        width: 100%;
+        border: none;
+    }
+    section h5{
+        background-color: rgb(18, 29, 92);
+        font-size: 30px;
+
+    }
+    span{
+        font-size: 20px;
+        width: 100%;
+    }
+   .options button:hover{
+     color:black
+   }
+    .PrincipalContainer button{
+    color: white;
+      font-size: 20px;
+    }
+}

@@ -22,3 +22,41 @@ span{
 span:hover{
     background-color: rgb(212, 216, 216);
 }
+
+@media(max-width:950px){
+    .PrincipalContainer{
+        flex-direction: column;
+       
+    }
+    section{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        border: none;
+    }
+    section h5{
+        background-color: rgb(18, 29, 92);
+        font-size: 30px;
+
+    }
+    span{
+        font-size: 20px;
+        width: 100%;
+    }
+    span:hover{
+        color: black;
+    }
+  .options button{
+    border: none;
+    text-align: left;
+    padding: 5px;
+    background: none;
+    cursor: pointer;
+  }
+
+    .PrincipalContainer button{
+    color: rgb(0, 0, 0);
+      font-size: 20px;
+    }
+    
+}

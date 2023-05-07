@@ -22,13 +22,18 @@
     cursor: pointer;
 }
 #navresponsive article button{
-    color: red;
+    color: rgb(148, 148, 148);
+    border-radius: 10px;
+    font-size: 30px;
+    border: none;
+    background: none;
 }
 .Menu{
     font-size: 40px;
     display: block;
     cursor: pointer;
     color: #bebdbd;
+    
 }
 .Menu:hover{
     color: white;
