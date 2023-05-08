@@ -1,5 +1,5 @@
 export const environment = {
     production: true,
-    API_URL:'https://ecommerce-joa.up.railway.app/'
+    API_URL:process.env['API_URL']
   };
   
