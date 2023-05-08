@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ProductsService {
-  BASE_URL:string =environment.API_URL//declaramos nuestra url base del back end
+  BASE_URL:any =environment.API_URL//declaram os nuestra url base del back end
   constructor(private http:HttpClient) { 
   }
   getAllBrands():Observable<any[]>{
@@ -18,7 +18,7 @@ export class ProductsService {
     return this.http.get<ProductsApi[]>(`${this.BASE_URL}/products/${type}`)
   }
   getAllproducts():Observable<Products[]>{
-    return this.http.get<Products[]>(`${this.BASE_URL}/products`)///traemos todos los productos
+    return this.http.get<Products[]>(`${this.BASE_URL}/products`)///traemos  todos los productos
   }
   getAllModels():Observable<any[]>{
     return this.http.get<any[]>(`${this.BASE_URL}/models`)
