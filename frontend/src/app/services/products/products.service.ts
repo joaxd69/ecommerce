@@ -2,11 +2,13 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'/// modulo que nos provee la posibilidad de hacer acciones asincronas como conectar al back end
 import {Observable} from 'rxjs'
 import { Products, ProductsApi } from 'src/app/interfaces/Interfaces';
+import { environment } from 'src/environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
-  BASE_URL:string ='http://localhost:3000'//declaramos nuestra url base del back end
+  BASE_URL:string =environment.API_URL//declaramos nuestra url base del back end
   constructor(private http:HttpClient) { 
   }
   getAllBrands():Observable<any[]>{

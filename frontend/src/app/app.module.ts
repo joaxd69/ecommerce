@@ -25,6 +25,10 @@ import { ProductsCardsComponent } from './components/products-cards/products-car
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CommonModule } from '@angular/common';
 import { MenuresponsiveComponent } from './components/menuresponsive/menuresponsive.component';
+
+import * as dotenv from 'dotenv';
+
+
 @NgModule({
   declarations: [///nuestros componentes de la aplicacion
     AppComponent,
