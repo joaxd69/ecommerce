@@ -36,12 +36,11 @@ export class ProductsService {
     return newProduct
 
   }
-
-
  async getAllProducts() {
     const allProducts=await this.ProductRepository.find({relations:["Brand","Model"]});///buscamos en  nuestra db , todos los productos, y retornamos incluyendo los relacionados
     return allProducts;
   }
+
  async getProductsByName(name:string ){///recibimos el nombre del producto que vamos a recibir por params
    const Product=await this.ProductRepository.findOne({
     where:{

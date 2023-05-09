@@ -14,8 +14,17 @@ export class CreateProductDto {
  Name:string;
  Price:number;
  Model:CreateModelDto;
- Characteristic: object;
+ Characteristic: ProductCharacteristic;
  Image:string;
  Brand?:string///ya que este sera el que se relacione recibira una string, que luego creara otra fila en la tabla de Brand.
  ProductType:ProductType
 }
+export class ProductCharacteristic{
+    Description:string;
+    Memory?:string;
+    MemoryRam?:string;
+    Camera?:string;
+    Colors?:string[];
+    ScreenSize?:number;
+}
+

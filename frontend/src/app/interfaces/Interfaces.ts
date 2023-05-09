@@ -23,11 +23,19 @@ export enum ProductType{
    Accesories= 'Accesories',
    Apliances= 'Apliances'
 }
+export interface ProductCharacteristic{
+   Description:string;
+   Memory?:string;
+   MemoryRam?:string;
+   Camera?:string;
+   Colors?:string[];
+   ScreenSize?:number;
+}
 export  interface Products{
    Name:string,
    Price:number,
    Model:Model,
-   Characteristic: object,
+   Characteristic: ProductCharacteristic,
    Image:string,
    Brand:string
    ProductType:ProductType|undefined
@@ -36,7 +44,7 @@ export  interface ProductsApi{
    Name:string,
    Price:number,
    Model:Model[],
-   Characteristic: object,
+   Characteristic: ProductCharacteristic,
    Image:string,
    ProductType:ProductType|undefined,
    Brand:{

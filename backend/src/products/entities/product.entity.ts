@@ -1,7 +1,7 @@
 import {Entity,Column,PrimaryGeneratedColumn,ManyToOne,JoinColumn, OneToMany} from 'typeorm'
 import { Brand } from 'src/brands/entities/brand.entity'
 import { Model } from 'src/models/entities/model.entity'
-import { ProductType } from '../dto/create-product.dto'
+import { ProductCharacteristic, ProductType } from '../dto/create-product.dto'
 @Entity({name:"products"})//declaramos la entidad y le asignamos un nombre a la tabla
 export class Product {
     @PrimaryGeneratedColumn('uuid')///para la tabla
@@ -16,7 +16,7 @@ export class Product {
     Price:number
  
     @Column({ type: 'jsonb',nullable:true })//tipo de dato que sera un objeto
-    Characteristic: object;
+    Characteristic:ProductCharacteristic;
     
     @Column({type:'varchar', nullable:false})
     Image:string;

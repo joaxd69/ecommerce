@@ -33,7 +33,10 @@ width: 70%;
 padding: 7px;
 
 }
-
+.Form textarea{
+    width: 70%;
+    resize: none;
+}
 .buttons button{
     padding: 5px;
     width: 100px;

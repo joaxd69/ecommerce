@@ -10,10 +10,6 @@
  font-size: 1.5rem;
 }
 
-.Brands button {
-    font-size: 1.2rem;
-    margin: 5px;
-}
 .Filters h1{
     color: blue;
     margin: 0;
@@ -26,7 +22,9 @@
     cursor: pointer;
     color: rgb(41, 41, 41);
     font-weight: 500;
+    font-size: 1.2rem;
+    margin: 10px;
 }
 .Filters button:hover{
-    color: rgb(14, 0, 214);
-}
+    color: rgb(14, 0, 214); 
+} 

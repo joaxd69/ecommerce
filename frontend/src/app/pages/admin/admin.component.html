@@ -9,30 +9,58 @@
     
          <article>
            <label for="">*Producto:</label>
-           <select *ngIf="!newOption" (input)="onChange($event,false)" name="Name" >
+           <button type="button" (click)="setNewOption()">Nuevo+</button>
+           <select *ngIf="!newOption" (change)="onChange($event,'Reset')" name="Name" >
              <option >Elegir</option>
              <option value="Celular">Celular</option>
              <option value="Televisor" >Televisor</option>
              <option value="Auricular">Auricular </option>
              <option value="Parlante">Parlante</option>
             </select>
-            <button type="button" (click)="setNewOption()">Nuevo+</button>
-            <input type="text" *ngIf="newOption" (input)="onChange($event,false)" name="Name">
+     
+            <input type="text" *ngIf="newOption" (input)="onChange($event)" name="Name">
+          </article>
+          <article *ngIf=" newProduct.Name==='Televisor'||newProduct.Name==='Monitor'">
+            <label for="">Pulgadas:</label>
+          <input type="number" name="ScreenSize" (change)="onChange($event,'Characteristic')">
+          </article>
+
+          <article *ngIf=" newProduct.Name==='Celular'||newProduct.Name==='Tablet'
+          ||newProduct.Name==='Notebook'">
+
+            <label for="">Memoria ram:</label>
+             <select name="MemoryRam" id="" (change)="onChange($event,'Characteristic')">
+              <option value="1">1gb</option>
+              <option value="2">2gb</option>
+              <option value="3">3gb</option>
+              <option value="4">4gb</option>
+              <option value="5">5gb</option>
+              <option value="6">6gb</option>
+              <option value="7">7gb</option>
+              <option value="8">8gb</option>
+              <option value="9">9gb</option>
+              <option value="10">10gb</option>
+              <option value="11">11gb</option>
+              <option value="12">12gb</option>
+            
+             </select>
+             <label>Memoria interna(gb):</label>
+             <input type="number" name="Memory" (input)="onChange($event,'Characteristic')">
           </article>
           <span *ngIf="visibleErrors&& Error.Name" style="color: red;">
             {{Error.Name}}
           </span>
-   
+
          <article>
            <label for="">*Marca</label>
-           <input type="text"  (input)="onChange($event,false)" name="Brand" value={{newProduct.Brand}}>
+           <input type="text"  (input)="onChange($event)" name="Brand" value={{newProduct.Brand}}>
          </article>
          <span *ngIf="visibleErrors&& Error.Brand" style="color: red;">
           {{Error.Brand}}
         </span>
          <article>
            <label for="">*Nombre/modelo</label>
-           <input type="text" (input)="onChange($event,true)" name="Name" value={{Model.Name}}>
+           <input type="text" (input)="onChange($event,'Model')" name="Name" value={{Model.Name}}>
          </article>
          <span *ngIf="visibleErrors&& Error.Model" style="color: red;">
           {{Error.Model}}
@@ -40,7 +68,7 @@
         
          <article>
            <label for="">*Tipo de producto</label>
-             <select  (input)="onChange($event,false)" name="ProductType"  >
+             <select  (input)="onChange($event)" name="ProductType"  >
              <option *ngFor="let section of sections, let i=index" >{{section}}</option>
            </select>
          </article>
@@ -50,7 +78,7 @@
          
          <article>
            <label for="">*Precio</label>
-           <input type="number" (input)="onChange($event,false)" name="Price" value="{{newProduct.Price}}">
+           <input type="number" (input)="onChange($event)" name="Price" value="{{newProduct.Price}}">
          </article>
          <span *ngIf="visibleErrors&& Error.Price" style="color: red;">
           {{Error.Price}}
@@ -58,7 +86,7 @@
 
          <article>
            <label for="">*Imagen</label>
-           <input type="text" (input)="onChange($event,false)" name="Image" value="{{newProduct.Image}}">
+           <input type="text" (input)="onChange($event)" name="Image" value="{{newProduct.Image}}">
          </article>
          <span *ngIf="visibleErrors&& Error.Image" style="color: red;">
           {{Error.Image}}
@@ -66,7 +94,7 @@
          
          <article>
            <label for="">*Stock?</label> 
-               <select name="" (change)="updateStock($event)" >
+               <select name="Stock" (change)="updateStock($event)" >
                    <option value="true">Si</option>
                    <option value="false">No</option>
                </select>
@@ -74,7 +102,12 @@
 
          <article>
            <label>*Cantidad de stock:</label>
-           <input type="number" (input)="updateStock($event)" id="" value="{{Model.Stock.stockNumber}}">
+           <input type="number" name="StockNumber" (input)="updateStock($event)" id="" value="{{Model.Stock.stockNumber}}">
+         </article>
+
+         <article>
+          <label for="">Descripcion:</label>
+          <textarea name="Description" id="" cols="30" rows="10" (input)="onChange($event,'Characteristic')"></textarea>
          </article>
 
          <div class="buttons">
