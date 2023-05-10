@@ -25,8 +25,10 @@ export class ComputingproductsComponent {
 
 
   traerinfo(){///traemos info del back end
-    const myQueryParam = this.route.snapshot.queryParamMap.get('name');
-    if(!myQueryParam){
+    const name = this.route.snapshot.queryParamMap.get('name');
+    const products = this.route.snapshot.queryParamMap.get('products')
+    const ram = this.route.snapshot.queryParamMap.get('ram')
+    if(!name &&!products&&!ram){
     this.ProductsService. getSomeProducts(ProductType.Informatics).//accedemos al metodo que hace una peticion a la ruta que nos da los celulares
     subscribe((res)=>{//metodo subscribe que nos resuelve la promesa
       this.Products=res;//en nuestra variable guardamos el resultado de la peticion
@@ -34,10 +36,28 @@ export class ComputingproductsComponent {
       console.log(this.Products);//vemos en consola que llega del back
       this.TotalProducts=this.Products.length//Nos quedamos con la cantidad de productos y le pasamos ese total a nuestra variable
     })
-    }else{
+    }else if(ram){
+      this.ProductsService. getSomeProducts(ProductType.Informatics).//accedemos al metodo que hace una peticion a la ruta que nos da los celulares
+      subscribe((res)=>{//metodo subscribe que nos resuelve la promesa
+        this.Products=res.filter(i=>i.Characteristic.MemoryRam===ram);//en nuestra variable guardamos el resultado de la peticion
+        this.ProductsR=res;//guardamos tambien en nuestra variable de respaldo(respaldo para resetear,ordenar por default,etc)
+        console.log(this.Products);//vemos en consola que llega del back
+        this.TotalProducts=this.Products.length//Nos quedamos con la cantidad de productos y le pasamos ese total a nuestra variable
+      })
+     }
+    else if(products){
+      this.ProductsService. getSomeProducts(ProductType.Informatics).//accedemos al metodo que hace una peticion a la ruta que nos da los celulares
+      subscribe((res)=>{//metodo subscribe que nos resuelve la promesa
+        this.Products=res.filter(i=>products.toUpperCase().includes(i.Name.toUpperCase()));//en nuestra variable guardamos el resultado de la peticion
+        this.ProductsR=res;//guardamos tambien en nuestra variable de respaldo(respaldo para resetear,ordenar por default,etc)
+        console.log(this.Products);//vemos en consola que llega del back
+        this.TotalProducts=this.Products.length//Nos quedamos con la cantidad de productos y le pasamos ese total a nuestra variable
+      })
+     }
+    else{
       this.ProductsService. getSomeProducts(ProductType.Informatics).//accedemos al metodo que hace una peticion a la ruta que nos da los celulares
     subscribe((res)=>{//metodo subscribe que nos resuelve la promesa
-      this.Products=res.filter(i=>i.Brand.Name===myQueryParam);//en nuestra variable guardamos el resultado de la peticion
+      this.Products=res.filter(i=>i.Brand.Name===name);//en nuestra variable guardamos el resultado de la peticion
       this.ProductsR=res;//guardamos tambien en nuestra variable de respaldo(respaldo para resetear,ordenar por default,etc)
       console.log(this.Products);//vemos en consola que llega del back
       this.TotalProducts=this.Products.length//Nos quedamos con la cantidad de productos y le pasamos ese total a nuestra variable

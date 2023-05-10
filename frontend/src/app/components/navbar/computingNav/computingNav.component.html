@@ -3,20 +3,20 @@
     
     <section>
             <h5>Portatiles</h5>
-            <span>Notebooks</span>
-            <span>Tablets</span>
-            <span>Pantallas</span> 
+            <button value=""  [routerLink]="['/Computing']" [queryParams]="{products:'Notebooks'}" (click)="reloadPage()">Notebooks</button>
+            <button value=""  [routerLink]="['/Computing']" [queryParams]="{products:'Tablets'}" (click)="reloadPage()">Tablets</button>
+            <button value=""  [routerLink]="['/Computing']" [queryParams]="{products:'Pantallas'}" (click)="reloadPage()">Pantallas</button> 
         </section> 
     
 
    
         <section>
             <h5>Accesorios</h5>
-            <span>Teclados</span>
-            <span>Mouse</span>
-            <span>Perifericos</span> 
+            <button value=""  [routerLink]="['/Computing']" [queryParams]="{products:'Teclados'}" (click)="reloadPage()">Teclados</button>
+            <button value=""  [routerLink]="['/Computing']" [queryParams]="{products:'Mouse'}" (click)="reloadPage()">Mouse</button>
+            <button value=""  [routerLink]="['/Computing']" [queryParams]="{products:'Perifericos'}" (click)="reloadPage()">Perifericos</button> 
         </section>
-    
+        products
    
     
         <section>
@@ -30,9 +30,9 @@
    
         <section>
             <h5>Memoria</h5>
-            <span>Notebooks</span>
-            <span>Tablets</span>
-            <span>Pantallas</span> 
+            <button value=""  [routerLink]="['/Computing']" [queryParams]="{ram:'1'}" (click)="reloadPage()">1gb</button>
+            <button value=""  [routerLink]="['/Computing']" [queryParams]="{ram:'2'}" (click)="reloadPage()">2gb</button>
+            <button value=""  [routerLink]="['/Computing']" [queryParams]="{ram:'4'}" (click)="reloadPage()">4gb</button> 
         </section>
     
 </div>
