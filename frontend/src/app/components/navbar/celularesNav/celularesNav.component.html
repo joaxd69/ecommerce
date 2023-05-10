@@ -8,13 +8,13 @@
      </section>
     <section>
     <h5>Memoria</h5>
-    <span>1gb</span>
-    <span>2gb</span>
-    <span>3gb</span>
-    <span>4gb</span>
-    <span>6gb</span>
-    <span>8gb</span>
-    <span>12hb</span>
+    <button value="1" [routerLink]="['/cellphones']" [queryParams]="{ram:'1'}" (click)="reloadPage()">1gb</button>
+    <button value="2" [routerLink]="['/cellphones']" [queryParams]="{ram:'2'}" (click)="reloadPage()">2gb</button>
+    <button value="3" [routerLink]="['/cellphones']" [queryParams]="{ram:'3'}" (click)="reloadPage()">3gb</button>
+    <button value="4" [routerLink]="['/cellphones']" [queryParams]="{ram:'4'}" (click)="reloadPage()">4gb</button>
+    <button value="6" [routerLink]="['/cellphones']" [queryParams]="{ram:'6'}" (click)="reloadPage()">6gb</button>
+    <button value="8" [routerLink]="['/cellphones']" [queryParams]="{ram:'8'}" (click)="reloadPage()">8gb</button>
+    <button value="12" [routerLink]="['/cellphones']" [queryParams]="{ram:'12'}" (click)="reloadPage()">12gb</button>
 </section>
 </div>
 
