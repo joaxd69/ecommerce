@@ -1,9 +1,9 @@
 <div class="PrincipalContainer">
     <section>
         <h5>Categorias</h5>
-        <span>Consolas</span>
-        <span>Jostyks</span>
-        <span>Sillas gamer</span>
-        <span>Accesorios para gaming</span>
+        <button [routerLink]="['/Gaming']" [queryParams]="{products:'Consolas'}" (click)=" reloadPage()">Consolas</button>
+        <button [routerLink]="['/Gaming']" [queryParams]="{products:'Joysticks'}" (click)=" reloadPage()">Joystick</button>
+        <button [routerLink]="['/Gaming']" [queryParams]="{products:'SillasGamer'}" (click)=" reloadPage()">Sillas gamer</button>
+        <button [routerLink]="['/Gaming']" [queryParams]="{products:'Accesoriosgaming'}" (click)=" reloadPage()">Accesorios para gaming</button>
     </section>
 </div>

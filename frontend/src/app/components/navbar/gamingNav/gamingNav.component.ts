@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./gamingNav.component.css']
 })
 export class GamingComponent {
-
+  reloadPage(): void {
+    setTimeout(() => {
+       window.location.reload();
+    }, 1);
+   }
 }
