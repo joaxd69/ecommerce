@@ -26,8 +26,9 @@ export class AudioVideoProductsComponent {
  }
   
  traerinfo(){///traemos info del back end
-  const myQueryParam = this.route.snapshot.queryParamMap.get('name');
-  if(!myQueryParam){
+  const name = this.route.snapshot.queryParamMap.get('name');
+  const category = this.route.snapshot.queryParamMap.get('category')
+  if(!name&&!category){
   this.ProductsService. getSomeProducts(ProductType.Audiovideo).//accedemos al metodo que hace una peticion a la ruta que nos da los celulares
   subscribe((res)=>{//metodo subscribe que nos resuelve la promesa
     this.Products=res;//en nuestra variable guardamos el resultado de la peticion
@@ -35,10 +36,19 @@ export class AudioVideoProductsComponent {
     console.log(this.Products);//vemos en consola que llega del back
     this.TotalProducts=this.Products.length//Nos quedamos con la cantidad de productos y le pasamos ese total a nuestra variable
   })
-  }else{
+  }else if(category){
+    this.ProductsService. getSomeProducts(ProductType.Audiovideo).//accedemos al metodo que hace una peticion a la ruta que nos da los celulares
+    subscribe((res)=>{//metodo subscribe que nos resuelve la promesa
+      this.Products=res.filter(i=>i.Name.toUpperCase().includes(category.toUpperCase()));//en nuestra variable guardamos el resultado de la peticion
+      this.ProductsR=res;//guardamos tambien en nuestra variable de respaldo(respaldo para resetear,ordenar por default,etc)
+      console.log(this.Products);//vemos en consola que llega del back
+      this.TotalProducts=this.Products.length//Nos quedamos con la cantidad de productos y le pasamos ese total a nuestra variable
+    })
+   }
+  else{
     this.ProductsService. getSomeProducts(ProductType.Audiovideo).//accedemos al metodo que hace una peticion a la ruta que nos da los celulares
   subscribe((res)=>{//metodo subscribe que nos resuelve la promesa
-    this.Products=res.filter(i=>i.Brand.Name===myQueryParam);//en nuestra variable guardamos el resultado de la peticion
+    this.Products=res.filter(i=>i.Brand.Name===name);//en nuestra variable guardamos el resultado de la peticion
     this.ProductsR=res;//guardamos tambien en nuestra variable de respaldo(respaldo para resetear,ordenar por default,etc)
     console.log(this.Products);//vemos en consola que llega del back
     this.TotalProducts=this.Products.length//Nos quedamos con la cantidad de productos y le pasamos ese total a nuestra variable

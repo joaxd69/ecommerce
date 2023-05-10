@@ -2,8 +2,8 @@
     
 <section>
     <h5>Categorías</h5>
-    <span> Auriculares</span>
-    <span> Parlantes</span> 
+    <button  [routerLink]="['/Audiovideo']" [queryParams]="{category:'Auriculares'}" (click)="reloadPage()"> Auriculares</button>
+    <button  [routerLink]="['/Audiovideo']" [queryParams]="{category:'Parlante'}" (click)="reloadPage()"> Parlantes</button> 
 </section>
 
 <section>
